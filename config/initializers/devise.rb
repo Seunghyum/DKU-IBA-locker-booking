@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'seunghyun257@naver.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -150,8 +150,8 @@ Devise.setup do |config|
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  # config.email_regexp = /\A[^@]+@[^@]+\z/
-
+  config.email_regexp = /\A([\w\.%\+\-]+)(@unist\.ac\.kr\z)|(@kangwon\.ac\.kr\z)|(@konkuk\.ac\.kr\z)|(@knu\.ac\.kr\z)|(@khu\.ac\.kr\z)|(@korea\.ac\.kr\z)|(@kookmin\.ac\.kr\z)|(@dankook\.ac\.kr\z)|(@duksung\.ac\.kr\z)|(@dongduk\.ac\.kr\z)(@pusan\.ac\.kr\z)|(@sogang\.ac\.kr\z)|(@seoultech\.ac\.kr\z)|(@snu\.ac\.kr\z)|(@uos\.ac\.kr\z)|(@swu\.ac\.kr\z)|(@skku\.edu\z)|(@sungsin\.ac\.kr\z)|(@sookmyung\.ac\.kr\z)|(@ajou\.ac\.kr\z)|(@yonsei\.ac\.kr\z)|(@ynu\.ac\.kr\z)|(@wku\.ac\.kr\z)|(@ehwa\.ac\.kr\z)|(@inha\.ac\.kr\z)|(@jnu\.ac\.kr\z)|(@cau\.ac\.kr\z)|(@cnu\.ac\.kr\z)|(@ptu\.ac\.kr\z)|(@kaist\.ac\.kr\z)|(@handong\.edu\z)/i
+  
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.

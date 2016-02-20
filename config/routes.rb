@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+             :controllers => {sessions: 'my_devise/sessions', registrations: "my_devise/registrations" }
+
   root :to => 'book#main_page'
   
   get 'book/main_page'
