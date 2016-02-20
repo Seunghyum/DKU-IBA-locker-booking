@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root :to => 'book#main_page'
+  root :to => 'book#first_page'
   
-  get 'book/main_page'
+  get 'book/first_page'
   
   get 'book/index'
 

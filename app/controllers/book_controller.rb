@@ -1,6 +1,6 @@
 class BookController < ApplicationController
-  before_action :authenticate_user!, except: [:main_page]
-  def main_page
+  before_action :authenticate_user!, except: [:first_page]
+  def first_page
   end
   
   def index
