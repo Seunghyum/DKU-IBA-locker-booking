@@ -1,8 +1,7 @@
 class BookController < ApplicationController
+  before_action :authenticate_user!, except: [:main_page]
   def main_page
   end
-  
-  before_action :authenticate_user!
   
   def index
   end
@@ -13,6 +12,6 @@ class BookController < ApplicationController
   def manage
   end
 
-  def select
+  def select_book
   end
 end

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'book/manage'
 
-  get 'book/select'
+  get 'book/select_book'
 
   get 'locker/index'
 
