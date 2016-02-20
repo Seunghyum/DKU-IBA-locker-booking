@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users,
              :controllers => {sessions: 'my_devise/sessions', registrations: "my_devise/registrations" }
 
-  root :to => 'book#first_page'
+ root :to => 'book#first_page'
   
   get 'book/first_page'
   

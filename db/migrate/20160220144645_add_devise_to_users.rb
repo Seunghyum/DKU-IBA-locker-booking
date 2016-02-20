@@ -10,7 +10,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
       
       #가입정보
       t.string :username
-      #남자 = ture
+      #남자 = true
       t.boolean :gender
       #소유한 사물함
       t.string :my_locker, uniqueness: true
