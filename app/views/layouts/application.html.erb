@@ -7,7 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('회원정보 수정하기', edit_user_registration_path) %>
+  <%= link_to('로그아웃', destroy_user_session_path, method: :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('로그인하기', new_user_session_path)  %>
+  <%= link_to('회원가입', new_user_registration_path)  %>
+  </li>
+<% end %>
 <%= yield %>
 
 </body>
