@@ -9,7 +9,7 @@
 <body>
 <% if user_signed_in? %>
   <li>
-  <%= current_user.user_email %>
+  <%= current_user.username %>
   <%= link_to('회원정보 수정하기', edit_user_registration_path) %>
   <%= link_to('로그아웃', destroy_user_session_path, method: :delete) %>
   </li>
