@@ -5,7 +5,11 @@ class CreateBooks < ActiveRecord::Migration
       t.string :class
       t.integer :year
       t.integer :bnum
-
+      t.references :user, index: true
+      t.references :major, index: true
+      t.references :liberal, index: true
+      
+      
       t.timestamps null: false
     end
   end

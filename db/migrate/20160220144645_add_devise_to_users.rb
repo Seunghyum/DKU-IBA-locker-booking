@@ -1,6 +1,11 @@
 class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
     change_table(:users) do |t|
+      t.references :book, index: true
+      t.references :liberal, index: true
+      t.references :major, index: true
+      
+      
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

@@ -18,31 +18,58 @@ ActiveRecord::Schema.define(version: 20160220144645) do
     t.string   "class"
     t.integer  "year"
     t.integer  "bnum"
+    t.integer  "user_id"
+    t.integer  "major_id"
+    t.integer  "liberal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "books", ["liberal_id"], name: "index_books_on_liberal_id"
+  add_index "books", ["major_id"], name: "index_books_on_major_id"
+  add_index "books", ["user_id"], name: "index_books_on_user_id"
 
   create_table "liberals", force: :cascade do |t|
     t.string   "lname"
+    t.integer  "user_id"
+    t.integer  "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "liberals", ["book_id"], name: "index_liberals_on_book_id"
+  add_index "liberals", ["user_id"], name: "index_liberals_on_user_id"
 
   create_table "lockers", force: :cascade do |t|
     t.integer  "lnum"
+    t.integer  "user_id"
+    t.integer  "major_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "lockers", ["major_id"], name: "index_lockers_on_major_id"
+  add_index "lockers", ["user_id"], name: "index_lockers_on_user_id"
+
   create_table "majors", force: :cascade do |t|
     t.string   "mname"
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.integer  "locker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "majors", ["book_id"], name: "index_majors_on_book_id"
+  add_index "majors", ["locker_id"], name: "index_majors_on_locker_id"
+  add_index "majors", ["user_id"], name: "index_majors_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "book_id"
+    t.integer  "liberal_id"
+    t.integer  "major_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -55,7 +82,10 @@ ActiveRecord::Schema.define(version: 20160220144645) do
     t.string   "last_sign_in_ip"
   end
 
+  add_index "users", ["book_id"], name: "index_users_on_book_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["liberal_id"], name: "index_users_on_liberal_id"
+  add_index "users", ["major_id"], name: "index_users_on_major_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
