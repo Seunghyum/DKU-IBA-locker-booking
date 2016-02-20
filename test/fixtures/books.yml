@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  lecture_name: MyString
+  year: 1
+  bnum: 1
+
+two:
+  title: MyString
+  lecture_name: MyString
+  year: 1
+  bnum: 1
