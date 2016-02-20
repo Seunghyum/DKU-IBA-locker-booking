@@ -1,4 +1,9 @@
 class BookController < ApplicationController
+  def main_page
+  end
+  
+  before_action :authenticate_user!
+  
   def index
   end
 
