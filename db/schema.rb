@@ -70,6 +70,13 @@ ActiveRecord::Schema.define(version: 20160220144645) do
     t.integer  "book_id"
     t.integer  "liberal_id"
     t.integer  "major_id"
+    t.string   "username"
+    t.boolean  "gender"
+    t.string   "my_locker"
+    t.integer  "my_num",                 default: 0
+    t.string   "user_major"
+    t.string   "user_submajor"
+    t.integer  "user_student_num"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

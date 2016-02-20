@@ -1,9 +1,27 @@
 class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
     change_table(:users) do |t|
+      #_id
       t.references :book, index: true
       t.references :liberal, index: true
       t.references :major, index: true
+      
+      #Major의 mname을 동일하게 만들기 위해
+      
+      #가입정보
+      t.string :username
+      #남자 = ture
+      t.boolean :gender
+      #소유한 사물함
+      t.string :my_locker, uniqueness: true
+      #사물함  first_check 번호표
+      t.integer :my_num, default: 0, uniqueness: true
+      #전공
+      t.string :user_major
+      #부전공
+      t.string :user_submajor
+      #학번
+      t.integer :user_student_num
       
       
       ## Database authenticatable
@@ -25,9 +43,9 @@ class AddDeviseToUsers < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       ## Confirmable
-      # t.string   :confirmation_token
-      # t.datetime :confirmed_at
-      # t.datetime :confirmation_sent_at
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
       # t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
