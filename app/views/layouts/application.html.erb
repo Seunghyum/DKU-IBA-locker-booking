@@ -5,24 +5,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <% if user_signed_in? %>
   <li>
-  <%= current_user.username %>
-  <%= link_to('회원정보 수정하기', edit_user_registration_path) %>
-  <%= link_to('로그아웃', destroy_user_session_path) %>
+    <%= current_user.username %>
+    <%= link_to('회원정보 수정하기', edit_user_registration_path) %>
+    <%= link_to('로그아웃', destroy_user_session_path) %>
   </li>
 <% else %>
   <li>
-  <%= link_to('로그인하기', new_user_session_path)  %>
-  <%= link_to('회원가입', new_user_registration_path)  %>
+    <%= link_to('로그인하기', new_user_session_path)  %>
+    <%= link_to('회원가입', new_user_registration_path)  %>
   </li>
 <% end %>
-<%= yield %>
 
+<%= yield %>
+<br>
+<% if params[:controller] == 'locker' %>
+  <%= link_to('중고책 서비스',  book_index_path) %>
+<% elsif params[:controller] == 'book' %>
+  <%= link_to('사물함 서비스', locker_index_path) %>
+<% elsif params[:controller] == 'home' %>
+<% end %>
 </body>
 </html>

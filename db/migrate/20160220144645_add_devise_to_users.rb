@@ -5,6 +5,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
       t.references :book, index: true
       t.references :liberal, index: true
       t.references :major, index: true
+      t.references :locker, index: true
       
       #Major의 mname을 동일하게 만들기 위해
       

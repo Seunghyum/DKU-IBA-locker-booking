@@ -12,6 +12,6 @@ class BookController < ApplicationController
   def manage
   end
 
-  def select_book
+  def selecting
   end
 end

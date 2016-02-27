@@ -1,28 +1,36 @@
 Rails.application.routes.draw do
+
   devise_for :users,
              :controllers => {sessions: 'my_devise/sessions', registrations: "my_devise/registrations" }
 
- root :to => 'book#first_page'
+ root :to => 'home#index'
+ 
+  get 'home/index'
   
   get 'book/first_page'
   
   get 'book/index'
-
+  
   get 'book/reject'
 
   get 'book/manage'
 
-  get 'book/select_book'
+  get 'book/selecting'
 
-  get 'locker/index'
 
   get 'locker/first_check'
-
+  
+  match '/locker/create', to: 'locker#create', via: [:get, :post]
+  
+  match '/locker/destroy', to: 'locker#destroy', via: [:get, :post]
+  
   get 'locker/reject'
+  
+  get 'locker/index'
 
   get 'locker/manage'
 
-  get 'locker/select_locker'
+  get 'locker/selecting'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

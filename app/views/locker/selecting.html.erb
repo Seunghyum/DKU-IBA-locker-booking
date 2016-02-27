@@ -1,0 +1,7 @@
+<h1>Locker#selecting</h1>
+
+  <%= form_tag(locker_create_path, method: "GET") do %>
+    <%= label_tag(:lnum, "사물함 번호 :") %>
+    <%= text_field_tag(:lnum) %>
+    <%= submit_tag("갖기", class: "submit") %>
+  <% end %>

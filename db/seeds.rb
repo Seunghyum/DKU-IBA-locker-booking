@@ -49,7 +49,7 @@ user = User.new(
 #user.skip_confirmation!
 user.save!
 
-Major.create(mname: "국제경영")
-Major.create(mname: "모바일")
+Major.create(mname: "국제경영", locker_limit: 30 )
+Major.create(mname: "모바일", locker_limit: 40 )
 # locker = Locker.create( A_1: nil)
 # locker = Locker.update("1", num_limit: 7, numbering: 0 )
