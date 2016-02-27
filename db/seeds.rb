@@ -26,12 +26,13 @@ user = User.new(
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "김우정",
+      :user_major       => '모바일',
       gender: false,
       user_student_num: 12341234,
       my_locker: 0
       
                 )
-user.skip_confirmation!
+#user.skip_confirmation!
 user.save!
 
 user = User.new(
@@ -40,11 +41,12 @@ user = User.new(
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "문승현",
+      :user_major       => '국제경영',
       gender: true,
       user_student_num: 23452345,
       my_locker: 0
                 )
-user.skip_confirmation!
+#user.skip_confirmation!
 user.save!
 
 Major.create(mname: "국제경영")

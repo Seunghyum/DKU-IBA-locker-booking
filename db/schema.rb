@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160220144645) do
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "class"
+    t.string   "giver"
     t.integer  "year"
     t.integer  "bnum"
     t.integer  "user_id"
@@ -87,10 +88,6 @@ ActiveRecord::Schema.define(version: 20160220144645) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["book_id"], name: "index_users_on_book_id"

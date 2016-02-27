@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Workspace</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,7 +14,7 @@
   <li>
   <%= current_user.username %>
   <%= link_to('회원정보 수정하기', edit_user_registration_path) %>
-  <%= link_to('로그아웃', destroy_user_session_path, method: :delete) %>
+  <%= link_to('로그아웃', destroy_user_session_path) %>
   </li>
 <% else %>
   <li>

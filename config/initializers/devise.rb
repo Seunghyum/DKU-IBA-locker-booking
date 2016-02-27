@@ -1,6 +1,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.authentication_keys = [ :login ]
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -43,12 +44,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [:email]
+  #config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:email]
+  #config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -150,7 +151,7 @@ Devise.setup do |config|
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  config.email_regexp = /\A([\w\.%\+\-]+)(@unist\.ac\.kr\z)|(@kangwon\.ac\.kr\z)|(@konkuk\.ac\.kr\z)|(@knu\.ac\.kr\z)|(@khu\.ac\.kr\z)|(@korea\.ac\.kr\z)|(@kookmin\.ac\.kr\z)|(@dankook\.ac\.kr\z)|(@duksung\.ac\.kr\z)|(@dongduk\.ac\.kr\z)(@pusan\.ac\.kr\z)|(@sogang\.ac\.kr\z)|(@seoultech\.ac\.kr\z)|(@snu\.ac\.kr\z)|(@uos\.ac\.kr\z)|(@swu\.ac\.kr\z)|(@skku\.edu\z)|(@sungsin\.ac\.kr\z)|(@sookmyung\.ac\.kr\z)|(@ajou\.ac\.kr\z)|(@yonsei\.ac\.kr\z)|(@ynu\.ac\.kr\z)|(@wku\.ac\.kr\z)|(@ehwa\.ac\.kr\z)|(@inha\.ac\.kr\z)|(@jnu\.ac\.kr\z)|(@cau\.ac\.kr\z)|(@cnu\.ac\.kr\z)|(@ptu\.ac\.kr\z)|(@kaist\.ac\.kr\z)|(@handong\.edu\z)/i
+ # config.email_regexp = /\A([\w\.%\+\-]+)(@unist\.ac\.kr\z)|(@kangwon\.ac\.kr\z)|(@konkuk\.ac\.kr\z)|(@knu\.ac\.kr\z)|(@khu\.ac\.kr\z)|(@korea\.ac\.kr\z)|(@kookmin\.ac\.kr\z)|(@dankook\.ac\.kr\z)|(@duksung\.ac\.kr\z)|(@dongduk\.ac\.kr\z)(@pusan\.ac\.kr\z)|(@sogang\.ac\.kr\z)|(@seoultech\.ac\.kr\z)|(@snu\.ac\.kr\z)|(@uos\.ac\.kr\z)|(@swu\.ac\.kr\z)|(@skku\.edu\z)|(@sungsin\.ac\.kr\z)|(@sookmyung\.ac\.kr\z)|(@ajou\.ac\.kr\z)|(@yonsei\.ac\.kr\z)|(@ynu\.ac\.kr\z)|(@wku\.ac\.kr\z)|(@ehwa\.ac\.kr\z)|(@inha\.ac\.kr\z)|(@jnu\.ac\.kr\z)|(@cau\.ac\.kr\z)|(@cnu\.ac\.kr\z)|(@ptu\.ac\.kr\z)|(@kaist\.ac\.kr\z)|(@handong\.edu\z)/i
   
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
