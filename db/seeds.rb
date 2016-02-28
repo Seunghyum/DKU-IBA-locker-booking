@@ -51,5 +51,9 @@ user.save!
 
 Major.create(mname: "국제경영", locker_limit: 30 )
 Major.create(mname: "모바일", locker_limit: 40 )
+
+Book.create(btitle: '국어', bclass: '경영학', bgiver: '문승현', bgrade: 3, major_id: 1 )
+Book.create(btitle: '수학', bclass: 'c프로그래밍', bgiver: '김우정', bgrade: 3, major_id: 2 )
+
 # locker = Locker.create( A_1: nil)
 # locker = Locker.update("1", num_limit: 7, numbering: 0 )

@@ -5,6 +5,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
       t.references :book, index: true
       t.references :liberal, index: true
       t.references :major, index: true
+      #1차 버튼클릭 합격자들만 가질 수 있는 locker_id
       t.references :locker, index: true
       
       #Major의 mname을 동일하게 만들기 위해

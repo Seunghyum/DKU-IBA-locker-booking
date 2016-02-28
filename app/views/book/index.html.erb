@@ -1,2 +1,20 @@
 <h1>Book#index</h1>
+<h2>매물로 나온 책들을 보여주는 곳</h2>
+<%= @book.each do |x| %>
+    책제목 : <%= x.btitle %> | 수업 : <%= x.bclass %> | <%= x.bgrade %>학년
+    <% if x.user_id.nil? %>
+        <%= if Book.each {|book| book.btitle != @book.btitle} rescue nil  %>
+    <form action="/book/selecting" method="GET">
+        <button class="btn waves-effect waves-light" type="submit" >Take
+            <i class="material-icons right">send</i>
+        </button>
+        <input type='hidden' value=<%= x.id %> name='book_id' />
+        <input type='hidden' value=<%= current_user.id %> name='user_id' />
+    </form>
+        <% end %>
+    <% else %>
+        <h4>임자 있음 </h4>
+    <% end %>
+    <br> 
+<% end %>
 <h2>자신이 점유한 책 보여주는 곳</h2>

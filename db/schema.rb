@@ -14,11 +14,10 @@
 ActiveRecord::Schema.define(version: 20160220144645) do
 
   create_table "books", force: :cascade do |t|
-    t.string   "title"
-    t.string   "class"
-    t.string   "giver"
-    t.integer  "year"
-    t.integer  "bnum"
+    t.string   "btitle"
+    t.string   "bclass"
+    t.string   "bgiver"
+    t.integer  "bgrade"
     t.integer  "user_id"
     t.integer  "major_id"
     t.integer  "liberal_id"

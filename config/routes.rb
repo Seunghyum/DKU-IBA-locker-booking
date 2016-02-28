@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
  root :to => 'home#index'
  
-  get 'home/index'
+  match '/book/selecting', to: 'book#selecting', via: [:get, :post]
   
-  get 'book/first_page'
+  match '/book/destroy', to: 'book#destroy', via: [:get, :post]
   
   get 'book/index'
   
@@ -15,14 +15,13 @@ Rails.application.routes.draw do
 
   get 'book/manage'
 
-  get 'book/selecting'
 
-
-  get 'locker/first_check'
   
   match '/locker/create', to: 'locker#create', via: [:get, :post]
   
   match '/locker/destroy', to: 'locker#destroy', via: [:get, :post]
+  
+  get 'locker/first_check'
   
   get 'locker/reject'
   
