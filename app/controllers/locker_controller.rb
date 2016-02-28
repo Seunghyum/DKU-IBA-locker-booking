@@ -16,7 +16,7 @@ class LockerController < ApplicationController
     current_user.major.update(locker_numbering: @numbering)
     if current_user.my_num < current_user.major.locker_limit
       Locker.create(lnum: 0, user_id: current_user.id, major_id: current_user.major.id )
-      redirect_to :action => "select_locker"
+      redirect_to :action => "selecting"
     else  
       redirect_to :action => "reject"
     end
@@ -37,7 +37,7 @@ class LockerController < ApplicationController
   end
   
   def destroy
-      current_user.locker.update(lnum: 0)
+      current_user.locker.update(lnum: nil)
       redirect_to locker_selecting_path
   end
   
