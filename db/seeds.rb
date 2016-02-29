@@ -49,6 +49,35 @@ user = User.new(
 #user.skip_confirmation!
 user.save!
 
+
+user = User.new(
+      :major_id              => 1,
+      :email                 => "222@dankook.ac.kr",
+      :password              => "12341234",
+      :password_confirmation => "12341234",
+      :username          => "한효주",
+      :user_major       => '국제경영',
+      gender: true,
+      user_student_num: 12341234,
+      my_locker: 0
+                )
+#user.skip_confirmation!
+user.save!
+
+user = User.new(
+      :major_id              => 1,
+      :email                 => "111@dankook.ac.kr",
+      :password              => "12341234",
+      :password_confirmation => "12341234",
+      :username          => "한예슬",
+      :user_major       => '국제경영',
+      gender: true,
+      user_student_num: 12341234,
+      my_locker: 0
+                )
+#user.skip_confirmation!
+user.save!
+
 Major.create(mname: "국제경영", locker_limit: 30 )
 Major.create(mname: "모바일", locker_limit: 40 )
 
