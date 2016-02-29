@@ -1,4 +1,6 @@
-<div class="login">
+<div class='col-xs-12 col-sm-3 col-md-3 col-lg-4'>
+</div>
+<div class="login col-xs-12  col-sm-6 col-md-6 col-lg-4">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
   
@@ -9,7 +11,7 @@
     
     <div class="form-group">
       <%= f.label :username, "실명" %> (실명이 아닐 시 검사 후 아이디 삭제)<br />
-      <%= f.text_field :username %>
+      <%= f.text_field :username, class: "form-control username" %>
     </div>
     
     <div class="form-group">
@@ -46,4 +48,6 @@
   
   <%= render "devise/shared/links" %>
   
+</div>
+<div class='col-xs-12 col-sm-3 col-md-3 col-lg-4'>
 </div>
