@@ -6,10 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Workspace</title>
   <%= stylesheet_link_tag    'application' %>
+  
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<p>시간 카운트 다운 </p>
+<div class="countdown">
+   Limited Time Only!
+   <span id="clock"></span>
+</div>
 <% if user_signed_in? %>
   <li>
     <%= current_user.username %>
