@@ -2,7 +2,6 @@
 </div>
 <div class="login col-xs-12  col-sm-6 col-md-6 col-lg-6">
     <div class='text-center'>
-      <p id="notice" class='text-center'><%#= notice %></p>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
@@ -34,12 +33,12 @@
     <div class='text-center'>
       <% if current_user.locker.nil? && current_user.my_num == 0 %>
         <div class="form-group">
-          <h5 class='silver'> 사물함 권한을 아직 같지 못했습니다 </h5>
+          <h5 class='silver'>아직 1차 접수하지 않았습니다.</h5>
         </div>
         <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
           <div class="form-group">
             <%= link_to locker_first_check_path, method: "get" do %>            
-              <%= button_tag "번호표 뽑기", class: "locker-button" %>
+              <%= button_tag "1차 접수하기", class: "locker-button" %>
             <% end %>
           </div>
       <% elsif current_user.locker && current_user.locker.lnum == 0 %>

@@ -5,6 +5,7 @@ class BookController < ApplicationController
 #자신의 로커 상태 표시 page + 첫번째 번호표 뽑기 view page
   def index
     @book = Book.all
+    @able_book = @book.where(user_id: nil)
   end
   
 #책 선택 로직
@@ -26,7 +27,7 @@ class BookController < ApplicationController
   
   def destroy
     @selecting_book.update( user_id: nil)
-    flash[:danger] = '책 신청권을 포기했습니다.'
+    flash[:warning] = '책 신청권을 포기했습니다.'
     redirect_to book_index_path
   end
   

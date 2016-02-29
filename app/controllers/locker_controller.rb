@@ -38,7 +38,7 @@ class LockerController < ApplicationController
       redirect_to locker_index_path
     elsif current_user.my_num >= current_user.major.locker_limit#사물함 제한 숫자에 들지 못한 유저가 어쩌다가 이 페이지로 왔을 떄
       #redirect_to locker_index_path, notice: "총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에..... "
-      flash[:danger] = "다른 사람이 이미 점유했습니다. 비어있는 다른 사물함을 다시 골라주세요!"
+      flash[:danger] = "다른 사람이 이미 점유했습니다. 비어있는 다른 사물함을 다시 골라주세요."
       redirect_to locker_index_path
     end
   end

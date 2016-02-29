@@ -1,8 +1,10 @@
 <div class="login">
-    <div  class='text-center'>
-      <p id="notice"><%= notice %></p>
+    <div class='text-center'>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
     </div>
-    <h4 class='blue-1'><strong><i class="fa fa-caret-right"></i>신청 가능 도서</strong></h4>
+    <h4 class='blue-1'><strong><i class="fa fa-caret-right"></i> 신청 가능 도서</strong></h4>
     <table class="table" id='book'>
         <tbody>
         
@@ -15,7 +17,7 @@
             <td></td>
           </tr>
           
-        <% @book.each do |x| %>
+        <% @able_book.each do |x| %>
           <tr>
             <td><%= x.major.mname %></td>
             <td><%= x.btitle %></td>
@@ -41,7 +43,7 @@
         </tbody>
     </table>
 
-    <h4 class='blue-1'><strong><i class="fa fa-caret-right"></i>내 신청 현황</strong></h4>
+    <h4 class='blue-1'><strong><i class="fa fa-caret-right"></i> 내 신청 현황</strong></h4>
     <table class="table" id='book'>
         <tbody>
         

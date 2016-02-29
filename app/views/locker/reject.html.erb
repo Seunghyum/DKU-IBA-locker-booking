@@ -1,4 +1,9 @@
 <div class="login">
+    <div class='text-center'>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
     <h1> 사물함을 얻지 못했습니다</h1>
     <h3> <%= current_user.my_num %>번째로 버튼을 클릭하셨습니다.</h3>
     <h3> 제한선 : <%= current_user.major.locker_limit %> </h3>

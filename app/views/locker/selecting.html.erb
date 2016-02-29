@@ -1,8 +1,62 @@
 <div class="login">
-<h1>Locker#selecting</h1>
-  <%= form_tag(locker_lockerselect_path, method: "post") do |f| %>
-    <%= label_tag(:lnum, "사물함 번호 :") %>
-    <%= text_field_tag(:lnum) %>
-    <%= submit_tag("갖기") %>
-  <% end %>
+    <div class='text-center'>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+    <% if current_user.major.mname == "국제경영" %>
+      <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+        <%= image_tag "iba.jpg", style: "width: 100%;" %>
+      </div>
+      <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+        <table class="table table-bordered">
+          <tbody>
+            <% 1.upto(4) do |x| %>
+            <tr>
+              <td><%= 1 + ( 11 * ( x  - 1 )) %></td>
+              <td><%= 2 + ( 11 * ( x  - 1 )) %></td>
+              <td><%= 3 + ( 11 * ( x  - 1 )) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+        <table class="table table-bordered">
+          <tbody>
+            <% 1.upto(4) do |x| %>
+            <tr>
+              <td><%= 4 + ( 11 * ( x  - 1 )) %></td>
+              <td><%= 5 + ( 11 * ( x  - 1 )) %></td>
+              <td><%= 6 + ( 11 * ( x  - 1 )) %></td>
+              <td><%= 7 + ( 11 * ( x  - 1 )) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+        <table class="table table-bordered">
+          <tbody>
+            <% 1.upto(4) do |x| %>
+            <tr>
+              <td><%= 8 + ( 11 * ( x  - 1 )) %></td>
+              <td><%= 9 + ( 11 * ( x  - 1 )) %></td>
+              <td><%= 10 + ( 11 * ( x  - 1 )) %></td>
+              <td><%= 11 + ( 11 * ( x  - 1 )) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+    
+    <div class='text-center'>
+      <%= form_tag(locker_lockerselect_path, method: "post") do |f| %>
+        <%= label_tag(:lnum, "사물함 번호 :") %>
+        <%= text_field_tag(:lnum) %>
+        <%= submit_tag("갖기") %>
+      <% end %>
+    </div>
+    
 </div>
