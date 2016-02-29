@@ -1,48 +1,49 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email, "대학교 웹메일" %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<div class="login">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
   
-  <div class="field">
-    <%= f.label :username, "실명" %> (실명이 아닐 시 검사 후 아이디 삭제)<br />
-    <%= f.text_field :username %>
-  </div>
+    <div class="form-group">
+      <%= f.label :email, "대학교 웹메일" %> (비밀번호 찾기 시 필요 )<br />
+      <%= f.email_field :email, class: "form-control username", autofocus: true %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :username, "실명" %> (실명이 아닐 시 검사 후 아이디 삭제)<br />
+      <%= f.text_field :username %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :user_major, "전공" %><br />
+      <%= f.select(:user_major, Major.all.collect {|u| [u.mname, u.mname]}, {}, { :class => 'browser-default'}) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :user_submajor, "부전공" %><br />
+      <%= f.select(:user_submajor, Major.all.collect {|u| [u.mname, u.mname]}, {}, { :class => 'browser-default'}) rescue nil%>
+    </div>
+    
+    <div class="form-group">
+      <%= f.radio_button :gender, false%> <%= f.label :gender_false, "남자" %> 
+      <%= f.radio_button :gender, true, checked: true %> <%= f.label :gender_true, "여자" %> 
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control password" %>
+    </div>
   
-  <div class="field">
-    <%= f.label :user_major, "전공" %><br />
-    <%= f.select(:user_major, Major.all.collect {|u| [u.mname, u.mname]}, {}, { :class => 'browser-default'}) %>
-  </div>
-  <div class="field">
-    <%= f.label :user_submajor, "부전공" %><br />
-    <%= f.select(:user_submajor, Major.all.collect {|u| [u.mname, u.mname]}, {}, { :class => 'browser-default'}) rescue nil%>
-  </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control password" %>
+    </div>
   
-  <div class="field">
-    <%= f.radio_button :gender, false%> <%= f.label :gender_false, "남자" %> 
-    <%= f.radio_button :gender, true, checked: true %> <%= f.label :gender_true, "여자" %> 
-  </div>
+    <div class="form-group">
+      <%= f.submit "Sign up", class: "submit" %>
+    </div>
+  <% end %>
   
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+  
+</div>

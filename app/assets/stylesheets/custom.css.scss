@@ -38,9 +38,16 @@
     height: 50px;    
 }
 section {
-    margin-top: 50px;    
+    margin-top: 50px;   
+    height: 100%;
+}
+body {
+    background-color: #f5f6f7;   
 }
 .text-center {
     text-align: center;    
 }
-
+.hoverable:hover {
+    transition: box-shadow 0.7s;
+    background-color: #cfe8ff;
+}

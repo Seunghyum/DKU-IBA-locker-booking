@@ -1,5 +1,4 @@
 class MyDevise::RegistrationsController < Devise::RegistrationsController
-  # layout "devise" 
   prepend_before_filter :require_no_authentication, only: [:new, :create, :cancel]
   prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
   #이게 먹히네.... http://stackoverflow.com/questions/17384289/unpermitted-parameters-adding-new-fields-to-devise-in-rails-4-0
@@ -166,11 +165,4 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   def account_update_params
     devise_parameter_sanitizer.sanitize(:account_update)
   end
-
-  def translation_scope
-    'devise.registrations'
-  end
-  
-  
-    
 end

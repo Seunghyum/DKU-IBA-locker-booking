@@ -25,39 +25,39 @@
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
-              <ul class="nav navbar-nav">
+              <ul class="nav navbar-nav navbar-right">
                   <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                   <li class="hidden">
                       <a class="page-scroll" href="#page-top"></a>
                   </li>
                   <% if user_signed_in? %>
-                    <li>
+                    <li class='navbar-right'>
                       <%= link_to('회원정보 수정하기', edit_user_registration_path) %>
                     </li>
-                    <li>
+                    <li class='navbar-right'>
                       <%= link_to('로그아웃', destroy_user_session_path) %>
                     </li>
                   <% else %>
-                    <li>
+                    <li class='navbar-right'>
                       <%= link_to('로그인하기', new_user_session_path)  %>
                     </li>
-                    <li>
+                    <li class='navbar-right'>
                       <%= link_to('회원가입', new_user_registration_path)  %>
                     </li>
                   <% end %>
                   
                   <% if params[:controller] == 'locker' %>
-                    <li>
+                    <li class='navbar-right'>
                       <%= link_to('중고책 서비스',  book_index_path) %>
                     </li>
                   <% elsif params[:controller] == 'book' %>
-                    <li>
+                    <li class='navbar-right'>
                       <%= link_to('사물함 서비스', locker_index_path) %>
                     </li>
                   <% elsif params[:controller] == 'home' %>
                   <% end %>
                 <li>
-                  <a href='#'><%= current_user.username %></a>
+                  <p class="navbar-text"><%= current_user.username rescue nil%></p>
                 </li>
               </ul>
           </div>
@@ -69,6 +69,13 @@
   <!-- Intro Section -->
   <section id="intro" class="intro-section">
     <div class="container">
+    
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+          <%= link_to(book_index_path) do %><%= image_tag "company_logo.png", class: "center-block img-responsive" %> <% end %>
+        </div>
+      </div>
+      
       <%= yield %>
     </div>
   </section>
