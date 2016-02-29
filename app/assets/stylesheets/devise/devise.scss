@@ -222,21 +222,6 @@ input[type=checkbox]:checked + label:before
     background-size: 11px auto;
 }
 
-.submit {
-	font-size: 15px;
-	border: 0;
-	padding: 15px;
-	width: 100%;
-	border-radius: 3px;
-	cursor: pointer;
-	background: rgb(3, 169, 245);
-	color: #fff;
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
-}
-
-.submit:focus {
-	outline: none;
-}
 
 // footer {
 // 	position: absolute;

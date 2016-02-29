@@ -3,7 +3,7 @@
 <div class="login col-xs-12  col-sm-6 col-md-6 col-lg-6">
     <h4 class='blue-1'><strong> <i class="fa fa-caret-right"></i> 현재 정보</strong></h4>
     
-    <table class="table">
+    <table class="table" id='locker'>
         <tbody>
           <tr>
             <td>성명</td>
@@ -20,7 +20,7 @@
             <% elsif current_user.locker.lnum == 0 %>
               <td>미선택</td>
             <% else %>
-              <td id='lnum'><%= current_user.locker.lnum %></td>
+              <td class='red'><%= current_user.locker.lnum %></td>
             <% end %>
           </tr>
         </tbody>

@@ -23,11 +23,9 @@ class BookController < ApplicationController
   end
   
   def destroy
-    
-    current_user.update( book_id: nil)
     @selecting_book.update( user_id: nil)
     
-    redirect_to locker_selecting_path
+    redirect_to book_index_path
   end
   
   def manage

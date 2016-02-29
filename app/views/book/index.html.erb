@@ -1,26 +1,77 @@
-<h1>Book#index</h1>
-<h2>매물로 나온 책들을 보여주는 곳</h2>
-<% @book.each do |x| %>
-    책제목 : <%= x.btitle %> | 수업 : <%= x.bclass %> | <%= x.bgrade %>학년
-    <% if x.user_id.nil? %>
-    
-        <%= form_tag(book_selecting_path, method: "GET") do %>
-            <%= hidden_field_tag 'book_id', x.id %>
-            <%= hidden_field_tag 'btitle', x.btitle %>
-            <%= submit_tag("갖기") %>
+<div class="login">
+    <h4 class='blue-1'><strong><i class="fa fa-caret-right"></i>신청 가능 도서</strong></h4>
+    <table class="table" id='book'>
+        <tbody>
+        
+          <tr>
+            <td>전공</td>
+            <td>제목</td>
+            <td>수업</td>
+            <td>학년</td>
+            <td>책주인</td>
+            <td></td>
+          </tr>
+          
+        <% @book.each do |x| %>
+          <tr>
+            <td><%= x.major.mname %></td>
+            <td><%= x.btitle %></td>
+            <td><%= x.bclass %></td>
+            <td><%= x.bgrade %></td>
+            <td><%= x.bgiver %></td>
+            <td>
+                <% if x.user_id.nil? %>
+                    <%= form_tag(book_selecting_path, method: "GET") do %>
+                        <%= hidden_field_tag 'book_id', x.id %>
+                        <%= hidden_field_tag 'btitle', x.btitle %>
+                        <%= submit_tag "신청하기", class: "apply" %>
+                    <% end %>
+                <% elsif x.user_id == current_user.id %>
+                    <span class='skyblue'>신청 완료</span>
+                <% else %>
+                    <span class='red'>절판</span>     
+                <% end %>
+            </td>
+          </tr>
         <% end %>
-    
-    <% else %>
-        &nbsp;&nbsp;&nbsp; 임자 있음      
-    <% end %>
-    <br> 
-<% end %>
-<h2>자신이 점유한 책 보여주는 곳</h2>
-<% @book.where(user_id: current_user).each do |y| %>
-    책제목 : <%= y.btitle %> | 수업 : <%= y.bclass %> | <%= y.bgrade %>학년
-<% end %> 
+        
+        </tbody>
+    </table>
 
-<br>
+    <h4 class='blue-1'><strong><i class="fa fa-caret-right"></i>내 신청 현황</strong></h4>
+    <table class="table" id='book'>
+        <tbody>
+        
+          <tr>
+            <td>제목</td>
+            <td>수업</td>
+            <td>학년</td>
+            <td>책주인</td>
+            <td>현황</td>
+          </tr>
+          
+        <% @book.where(user_id: current_user).each do |y| %>
+          <tr>
+            <td><%= y.btitle %></td>
+            <td><%= y.bclass %></td>
+            <td><%= y.bgrade %></td>
+            <td><%= y.bgiver %></td>
+            <td>
+                <%= form_tag(book_destroy_path, method: "GET") do %>
+                    <%= hidden_field_tag 'book_id', y.id %>
+                    <%= hidden_field_tag 'btitle', y.btitle %>
+                    <%= submit_tag "반납하기", class: "return" %>
+                <% end %>
+            </td>
+          </tr>
+        <% end %>
+        
+        </tbody>
+    </table>
+
+
 <%= link_to "현황 보기", book_manage_path %>
+
+</div>
 
 

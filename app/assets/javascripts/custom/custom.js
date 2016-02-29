@@ -64,3 +64,15 @@
             setTimeout("countdown(theyear,themonth,theday,thehour,theminute)",1000);
         }
     }
+    
+$(document).ready(function(){
+    var screenHeight = $(window).height() - 100;
+    
+    $('section').css({'height': screenHeight});
+    
+    $(window).resize(function(){
+        var screenHeight = $(window).height() - 100;
+        
+        $('section').css({'height': screenHeight});
+    });
+});

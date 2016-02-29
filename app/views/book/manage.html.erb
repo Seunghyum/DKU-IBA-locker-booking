@@ -1,9 +1,31 @@
-<h1>Book#manage</h1>
-
-<% @book.each do |x| %>
-    책제목 : <%= x.btitle %> | 수업 : <%= x.bclass %> | <%= x.bgrade %>학년 | 책주인 : <%= x.bgiver %>
-    <% if x.user %>
-    | 주인 : <%= x.user.username %> | 학번 : <%= x.user.user_student_num %>
-    <% end %>
-    <br>
-<% end %>
+<div class="login">
+    <h4 class='blue-1'><strong><i class="fa fa-caret-right"></i>전체 도서 현황</strong></h4>
+    <table class="table" id='book'>
+        <tbody>
+        
+          <tr>
+            <td>제목</td>
+            <td>수업</td>
+            <td>책주인</td>
+            <td>대여자</td>
+            <td>대여자 학번</td>
+          </tr>
+          
+        <% @book.each do |y| %>
+          <tr>
+            <td><%= y.btitle %></td>
+            <td><%= y.bclass %></td>
+            <td><%= y.bgiver %></td>
+            <% if y.user %>
+                <td><%= y.user.username %></td>
+                <td><%= y.user.user_student_num %></td>
+            <% else %>
+                <td class='red'>미정</td>
+                <td class='red'>미정</td>
+            <% end %>
+          </tr>
+        <% end %>
+        
+        </tbody>
+    </table>
+</div>
