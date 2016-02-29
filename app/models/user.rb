@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
          
   has_one :locker
-  has_and_belongs_to_many :books
+  has_many :books
   belongs_to :major
   belongs_to :liberal
   

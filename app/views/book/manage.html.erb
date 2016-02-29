@@ -1,2 +1,9 @@
 <h1>Book#manage</h1>
-<p>Find me in app/views/book/manage.html.erb</p>
+
+<% @book.each do |x| %>
+    책제목 : <%= x.btitle %> | 수업 : <%= x.bclass %> | <%= x.bgrade %>학년 | 책주인 : <%= x.bgiver %>
+    <% if x.user %>
+    | 주인 : <%= x.user.username %> | 학번 : <%= x.user.user_student_num %>
+    <% end %>
+    <br>
+<% end %>

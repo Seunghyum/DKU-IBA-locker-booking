@@ -1,20 +1,24 @@
 <h1>Book#index</h1>
 <h2>매물로 나온 책들을 보여주는 곳</h2>
-<%= @book.each do |x| %>
+<% @book.each do |x| %>
     책제목 : <%= x.btitle %> | 수업 : <%= x.bclass %> | <%= x.bgrade %>학년
     <% if x.user_id.nil? %>
-        <%= if Book.each {|book| book.btitle != @book.btitle} rescue nil  %>
-    <form action="/book/selecting" method="GET">
-        <button class="btn waves-effect waves-light" type="submit" >Take
-            <i class="material-icons right">send</i>
-        </button>
-        <input type='hidden' value=<%= x.id %> name='book_id' />
-        <input type='hidden' value=<%= current_user.id %> name='user_id' />
-    </form>
+    
+        <%= form_tag(book_selecting_path, method: "GET") do %>
+            <%= hidden_field_tag 'book_id', x.id %>
+            <%= hidden_field_tag 'btitle', x.btitle %>
+            <%= submit_tag("갖기") %>
         <% end %>
+    
     <% else %>
-        <h4>임자 있음 </h4>
+        &nbsp;&nbsp;&nbsp; 임자 있음      
     <% end %>
     <br> 
 <% end %>
 <h2>자신이 점유한 책 보여주는 곳</h2>
+<% @book.where(user_id: current_user).each do |y| %>
+    책제목 : <%= y.btitle %> | 수업 : <%= y.bclass %> | <%= y.bgrade %>학년
+<% end %> 
+
+<br>
+<%= link_to "현황 보기", book_manage_path %>

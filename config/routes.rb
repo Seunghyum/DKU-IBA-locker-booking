@@ -1,10 +1,9 @@
-Rails.application.routes.draw do
-
+Rails.application.routes.draw do  
   devise_for :users,
              :controllers => {sessions: 'my_devise/sessions', registrations: "my_devise/registrations" }
 
- root :to => 'home#index'
- 
+  root :to => 'home#index'   
+   
   match '/book/selecting', to: 'book#selecting', via: [:get, :post]
   
   match '/book/destroy', to: 'book#destroy', via: [:get, :post]
@@ -17,7 +16,7 @@ Rails.application.routes.draw do
 
 
   
-  match '/locker/create', to: 'locker#create', via: [:get, :post]
+  match '/locker/lockerselect', to: 'locker#lockerselect', via: [:get, :post]
   
   match '/locker/destroy', to: 'locker#destroy', via: [:get, :post]
   
