@@ -13,9 +13,9 @@
     var year=2016;    //-->Enter the count down target date YEAR
     var month=3;      //-->Enter the count down target date MONTH
     var day=4;       //-->Enter the count down target date DAY
-    var hour=12;      //-->Enter the count down target date HOUR (24 hour clock)
-    var minute=00;    //-->Enter the count down target date MINUTE
-    var tz=-5;        //-->Offset for your timezone in hours from UTC (see http://wwp.greenwichmeantime.com/index.htm to find the timezone offset for your location)
+    var hour=19;      //-->Enter the count down target date HOUR (24 hour clock)
+    var minute=35;    //-->Enter the count down target date MINUTE
+    var tz=+9;        //-->Offset for your timezone in hours from UTC (see http://wwp.greenwichmeantime.com/index.htm to find the timezone offset for your location)
     
     //    DO NOT CHANGE THE CODE BELOW!
     var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
