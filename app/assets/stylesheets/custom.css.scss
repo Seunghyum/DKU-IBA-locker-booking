@@ -23,9 +23,9 @@
 }
 .title {    /* the styles below will affect the title under the numbers, i.e., “Days”, “Hours”, etc. */
         //border: solid;    
-        padding-top: 3px;
+        padding-top: 6px;
         //padding: 0px;
-        width: 30px;
+        //width: 30px;
         text-align: center; 
         //font-family: Arial; 
         font-size: 25px; 
@@ -34,7 +34,7 @@
         background: transparent;    /* change the background color using the hexadecimal color codes for HTML */
 }
 #table {
-        width: 350px;
+        //width: 350px;
         //border: solid;    /* options are none, dotted, dashed, solid, double, groove, ridge, inset, outset */
         margin: 0px auto;
         position: relative;    /* leave as "relative" to keep timer centered on your page, or change to "absolute" then change the values of the "top" and "left" properties to position the timer */
