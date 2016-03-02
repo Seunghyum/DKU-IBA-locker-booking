@@ -12,6 +12,8 @@ class AddDeviseToUsers < ActiveRecord::Migration
       
       #가입정보
       t.string :username
+      #국경 GBA여부
+      t.string :gba, default: false
       #남자 = true
       t.boolean :gender
       #소유한 사물함
@@ -60,7 +62,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
       # t.timestamps null: false
     end
 
-    add_index :users, :email,                unique: true
+    add_index :users, :email,                unique: false
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true

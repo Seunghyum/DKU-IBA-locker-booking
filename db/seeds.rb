@@ -26,7 +26,7 @@ user = User.new(
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "김우정",
-      :user_major       => '모바일',
+      :user_major       => '국제경영',
       gender: false,
       user_student_num: 12341234,
       my_locker: 0
@@ -77,6 +77,54 @@ user = User.new(
                 )
 #user.skip_confirmation!
 user.save!
+
+user = User.new(
+      :major_id              => 1,
+      :email                 => "345345@dankook.ac.kr",
+      :password              => "12341234",
+      :password_confirmation => "12341234",
+      :username          => "111",
+      :user_major       => '국제경영',
+      gender: true,
+      user_student_num: 12341234,
+      my_locker: 0
+                )
+#user.skip_confirmation!
+user.save!
+user = User.new(
+      :major_id              => 1,
+      :email                 => "45645456@dankook.ac.kr",
+      :password              => "12341234",
+      :password_confirmation => "12341234",
+      :username          => "2222",
+      :user_major       => '국제경영',
+      gender: true,
+      user_student_num: 12341234,
+      my_locker: 0
+                )
+#user.skip_confirmation!
+user.save!
+user = User.new(
+      :major_id              => 1,
+      :email                 => "141166@dankook.ac.kr",
+      :password              => "12341234",
+      :password_confirmation => "12341234",
+      :username          => "333",
+      :user_major       => '국제경영',
+      gender: true,
+      user_student_num: 12341234,
+      my_locker: 0
+                )
+#user.skip_confirmation!
+user.save!
+
+
+#모바일
+user = User.create( major_id: 2, email: "32141620@dankook.ac.kr", user_student_num: 12341234, password: "12341234", password_confirmation: "12341234", username: "강남호", user_major: '국제경영', gender: true, my_locker: 0 )
+
+#국제경영
+user = User.create( major_id: 2, email: "2323@dankook.ac.kr", user_student_num: 12341234, password: "12341234", password_confirmation: "12341234", username: "이정수", user_major: '국제경영', gender: false, my_locker: 0 )
+
 
 Major.create(mname: "국제경영", locker_limit: 30 )
 Major.create(mname: "모바일", locker_limit: 40 )

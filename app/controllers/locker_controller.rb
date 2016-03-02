@@ -10,18 +10,32 @@ class LockerController < ApplicationController
 #1차접수 번호표 뽑기 로직
   def first_check
     
-    #1차 접수 - 제한을 넘는지 확인하는 과정
-    current_user.update(my_num: @numbering)
-    current_user.major.update(locker_numbering: @numbering)
-    if current_user.locker.nil? && current_user.my_num < current_user.major.locker_limit
+    
+  #처음으로 1차 접수 시, 제한인원 안에 들었을 때 
+    if current_user.locker.nil? && current_user.my_num < current_user.major.locker_limit && current_user.my_num == 0
+      
+      #1차 접수 - 제한을 넘는지 확인하는 과정
+      current_user.update(my_num: @numbering)
+      current_user.major.update(locker_numbering: @numbering)
+      
       Locker.create(user_id: current_user.id, major_id: current_user.major_id)
       current_user.update(locker_id: Locker.where(user_id: current_user.id).take.id)
       
       flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
       redirect_to :action => "selecting"
-    else  
+  #처음으로 접수시 1차 접수 시, 제한 인원 안에 들지 못했을 때
+    elsif current_user.locker && current_user.my_num > current_user.major.locker_limit && current_user.my_num == 0
       flash[:danger] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에....."
       redirect_to :action => "reject"
+      
+      #1차 접수 - 제한을 넘는지 확인하는 과정
+      current_user.update(my_num: @numbering)
+      current_user.major.update(locker_numbering: @numbering)
+      
+  #뒤로가기 방지 로직
+    elsif current_user.locker && current_user.my_num < current_user.major.locker_limit && current_user.my_num == 0
+      flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
+      redirect_to :action => "selecting"
     end
   end
 
@@ -31,16 +45,29 @@ class LockerController < ApplicationController
   
 #두번째 로커 선택 로직
   def lockerselect
-    if current_user.locker.lnum == 0  || current_user.my_num <= current_user.major.locker_limit#현재 유저가 사물함 가진것이 없으나 사물함 얻을 수 있는 번호 일 때
-      @mylocker.update(lnum: @lnum)
-      # redirect_to locker_index_path, notice: "총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
-      flash[:success] = "#{@lnum}번 사물함을 획득했습니다."
-      redirect_to locker_index_path
-    elsif current_user.my_num >= current_user.major.locker_limit#사물함 제한 숫자에 들지 못한 유저가 어쩌다가 이 페이지로 왔을 떄
-      #redirect_to locker_index_path, notice: "총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에..... "
-      flash[:danger] = "다른 사람이 이미 점유했습니다. 비어있는 다른 사물함을 다시 골라주세요."
-      redirect_to locker_index_path
-    end
+    if current_user.my_num <= current_user.major.locker_limit
+      #현재 유저가 사물함 가진것이 없을때
+      if current_user.locker.lnum.nil? && @selecting_locker.nil?
+        @mylocker.update(lnum: @lnum)
+       
+        flash[:success] = "#{@lnum}번 사물함을 획득했습니다."
+        redirect_to locker_index_path
+        
+      # 사물함 얻을 수 있는 번호 일 때 / 클릭한 사물함이 점유되지 않았을 때
+      elsif  @selecting_locker.nil?
+        flash[:danger] = "이미 사물함을 가지고 있습니다. 반납 후 다시 골라주세요!"
+        redirect_to locker_index_path
+        
+      # 사물함 점유한 사람이 뒤로가기 눌렀을 때 / 클릭한 사물함이 이미 점유되었을 때  
+      elsif @selecting_locker
+        
+        flash[:danger] = "#{@selecting_locker.lnum}번을 다른사람이 먼저 점유했습니다. 다시골라주세요."
+        redirect_to locker_selecting_path
+      end
+    else
+        #1차 접수 시 제한 인원 안에 들지 못했을 경우
+        redirect_to locker_reject_path
+    end    
   end
   
   def destroy
@@ -49,7 +76,7 @@ class LockerController < ApplicationController
   end
   
   def manage
-    @user_major_locker = Locker.where(major_id: current_user.major.id) rescue nil
+    @user_major_locker = Locker.where(major_id: current_user.major_id) rescue nil
   end 
     
   private
@@ -60,7 +87,13 @@ class LockerController < ApplicationController
     end
     
     def set_locker
-      @mylocker = Locker.find(current_user.locker.id)
+      #유저의 현재 사물함
+      @mylocker = current_user.locker
+      
+      #유저가 클릭한 사물함 
       @lnum = params[:lnum]
+      
+      #유저가 클릭한 사물함 자체
+      @selecting_locker = Locker.where(major_id: current_user.major_id, lnum: @lnum).take rescue nil
     end
 end
