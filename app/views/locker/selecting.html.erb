@@ -11,217 +11,218 @@
       <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
         <%= image_tag "iba.jpg", style: "width: 100%;" %>
       </div>
-      <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
-        <table class="table table-bordered">
-          <tbody>
-            <% 1.upto(4) do |x| %>
-            <tr>
-            
-              <% if Locker.where(lnum: 1 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 1 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 2 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 2 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 3 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 3 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
-        <table class="table table-bordered">
-          <tbody>
-            <% 1.upto(4) do |x| %>
-            <tr>
-            
-              <% if Locker.where(lnum: 4 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 4 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 5 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 5 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 6 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 6 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 7 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 7 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
-        <table class="table table-bordered">
-          <tbody>
-            <% 1.upto(4) do |x| %>
-            <tr>
-            
-              <% if Locker.where(lnum: 8 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 8 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 9 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 9 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 10 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 10 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 11 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 11 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
       
+      <div class='row'>
+        <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+          <table class="table table-bordered">
+            <tbody>
+              <% 1.upto(4) do |x| %>
+              <tr>
+              
+                <% if Locker.where(lnum: 1 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 1 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 1 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(lnum: 2 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 2 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 2 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(lnum: 3 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 3 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 3 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+          <table class="table table-bordered">
+            <tbody>
+              <% 1.upto(4) do |x| %>
+              <tr>
+              
+                <% if Locker.where(lnum: 4 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 4 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 4 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(lnum: 5 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 5 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 5 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(lnum: 6 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 6 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 6 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(lnum: 7 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 7 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 7 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+          <table class="table table-bordered">
+            <tbody>
+              <% 1.upto(4) do |x| %>
+              <tr>
+              
+                <% if Locker.where(lnum: 8 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 8 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 8 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(lnum: 9 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 9 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 9 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(lnum: 10 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 10 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 10 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(lnum: 11 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 11 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 11 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
 <!--모바일-->
     <% elsif current_user.major.mname == "모바일" %>
+      
       <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-        사진이다
+        <%= image_tag "mobile.jpg", style: "width: 100%;" %>
       </div>
-      <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
-        <table class="table table-bordered">
-          <tbody>
-            <% 1.upto(4) do |x| %>
-            <tr>
-            
-              <% if Locker.where(lnum: 1 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 1 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
+      
+      <div class='row'>
+        <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
+          <table class="table table-bordered">
+            <tbody>
+              <% 1.upto(4) do |x| %>
+              <tr>
               
-              <% if Locker.where(lnum: 2 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 2 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
+                <% if Locker.where(major_id: 2,lnum: 1 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 1 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 1 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 2 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 2 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 2 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 3 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 3 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 3 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 4 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 4 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 4 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 5 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 5 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 5 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 6 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 6 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 6 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+              </tr>
               <% end %>
-              
-              <% if Locker.where(lnum: 3 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 3 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
+            </tbody>
+          </table>
+        </div>
+        <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
+          <table class="table table-bordered">
+            <tbody>
+              <% 1.upto(4) do |x| %>
+              <tr>
+                <% if Locker.where(major_id: 2, lnum: 7 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 7 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 7 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 8 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 8 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 8 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 9 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 9 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 9 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 10 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 10 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 10 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 11 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 11 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 11 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+                <% if Locker.where(major_id: 2, lnum: 12 + ( 11 * ( x  - 1 ))).take.nil? %>
+                  <td><%= link_to "#{ 12 + ( 11 * ( x  - 1 )) }", locker_lockerselect_path( :lnum => "#{ 12 + ( 11 * ( x  - 1 ))}"), method: :post %></td>
+                <% else %>
+                  <td class='red-box'>X</td>
+                <% end %>
+                
+              </tr>
               <% end %>
-              
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
-        <table class="table table-bordered">
-          <tbody>
-            <% 1.upto(4) do |x| %>
-            <tr>
-              <% if Locker.where(lnum: 4 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 4 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 5 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 5 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 6 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 6 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 7 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 7 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
-        <table class="table table-bordered">
-          <tbody>
-            <% 1.upto(4) do |x| %>
-            <tr>
-            
-              <% if Locker.where(lnum: 8 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 8 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 9 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 9 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 10 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 10 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-              <% if Locker.where(lnum: 11 + ( 11 * ( x  - 1 ))).take.nil? %>
-                <td><%= 11 + ( 11 * ( x  - 1 )) %></td>
-              <% else %>
-                <td class='red-box'>X</td>
-              <% end %>
-              
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </div>
     <% end %>
     
-    <div class='text-center'>
-      <%= form_tag(locker_lockerselect_path, method: "post") do |f| %>
-        <%= label_tag(:lnum, "사물함 번호 :") %>
-        <%= text_field_tag(:lnum) %>
-        <%= submit_tag("갖기") %>
-      <% end %>
-    </div>
+    <!--<div class='text-center'>-->
+    <!--  <%#= form_tag(locker_lockerselect_path, method: "post") do |f| %>-->
+    <!--    <%#= label_tag(:lnum, "사물함 번호 :") %>-->
+    <!--    <%#= text_field_tag(:lnum) %>-->
+    <!--    <%#= submit_tag("갖기") %>-->
+    <!--  <%# end %>-->
+    <!--</div>-->
     
 </div>

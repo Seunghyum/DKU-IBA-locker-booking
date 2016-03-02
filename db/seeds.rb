@@ -22,11 +22,11 @@
 
 user = User.new(
       :major_id              => 2,
+      :user_major       => '모바일',
       :email                 => "12341234@dankook.ac.kr",
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "김우정",
-      :user_major       => '국제경영',
       gender: false,
       user_student_num: 12341234,
       my_locker: 0
@@ -37,11 +37,11 @@ user.save!
 
 user = User.new(
       :major_id              => 1,
+      :user_major       => '국제경영',
       :email                 => "23452345@dankook.ac.kr",
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "문승현",
-      :user_major       => '국제경영',
       gender: true,
       user_student_num: 23452345,
       my_locker: 0
@@ -52,11 +52,11 @@ user.save!
 
 user = User.new(
       :major_id              => 1,
+      :user_major       => '국제경영',
       :email                 => "222@dankook.ac.kr",
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "한효주",
-      :user_major       => '국제경영',
       gender: true,
       user_student_num: 12341234,
       my_locker: 0
@@ -66,11 +66,11 @@ user.save!
 
 user = User.new(
       :major_id              => 1,
+      :user_major       => '국제경영',
       :email                 => "111@dankook.ac.kr",
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "한예슬",
-      :user_major       => '국제경영',
       gender: true,
       user_student_num: 12341234,
       my_locker: 0
@@ -80,11 +80,11 @@ user.save!
 
 user = User.new(
       :major_id              => 1,
+      :user_major       => '국제경영',
       :email                 => "345345@dankook.ac.kr",
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "111",
-      :user_major       => '국제경영',
       gender: true,
       user_student_num: 12341234,
       my_locker: 0
@@ -93,11 +93,11 @@ user = User.new(
 user.save!
 user = User.new(
       :major_id              => 1,
+      :user_major       => '국제경영',
       :email                 => "45645456@dankook.ac.kr",
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "2222",
-      :user_major       => '국제경영',
       gender: true,
       user_student_num: 12341234,
       my_locker: 0
@@ -106,11 +106,11 @@ user = User.new(
 user.save!
 user = User.new(
       :major_id              => 1,
+      :user_major       => '국제경영',
       :email                 => "141166@dankook.ac.kr",
       :password              => "12341234",
       :password_confirmation => "12341234",
       :username          => "333",
-      :user_major       => '국제경영',
       gender: true,
       user_student_num: 12341234,
       my_locker: 0
@@ -120,10 +120,12 @@ user.save!
 
 
 #모바일
-user = User.create( major_id: 2, email: "32141620@dankook.ac.kr", user_student_num: 12341234, password: "12341234", password_confirmation: "12341234", username: "강남호", user_major: '국제경영', gender: true, my_locker: 0 )
+user = User.create( major_id: 2, user_major: '모바일', email: "11@dankook.ac.kr", user_student_num: 12341234, password: "12341234", password_confirmation: "12341234", username: "11", gender: true, my_locker: 0 )
+user = User.create( major_id: 2, user_major: '모바일', email: "22@dankook.ac.kr", user_student_num: 12341234, password: "12341234", password_confirmation: "12341234", username: "22", gender: true, my_locker: 0 )
+user = User.create( major_id: 2, user_major: '모바일', email: "33@dankook.ac.kr", user_student_num: 12341234, password: "12341234", password_confirmation: "12341234", username: "33", gender: true, my_locker: 0 )
 
 #국제경영
-user = User.create( major_id: 2, email: "2323@dankook.ac.kr", user_student_num: 12341234, password: "12341234", password_confirmation: "12341234", username: "이정수", user_major: '국제경영', gender: false, my_locker: 0 )
+user = User.create( major_id: 1, user_major: '국제경영', email: "2323@dankook.ac.kr", user_student_num: 12341234, password: "12341234", password_confirmation: "12341234", username: "이정수", gender: false, my_locker: 0 )
 
 
 Major.create(mname: "국제경영", locker_limit: 30 )
