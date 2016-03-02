@@ -128,8 +128,8 @@ user = User.create( major_id: 2, user_major: '모바일', email: "33@dankook.ac.
 user = User.create( major_id: 1, user_major: '국제경영', email: "2323@dankook.ac.kr", user_student_num: 12341234, password: "12341234", password_confirmation: "12341234", username: "이정수", gender: false, my_locker: 0 )
 
 
-Major.create(mname: "국제경영", locker_limit: 30 )
-Major.create(mname: "모바일", locker_limit: 40 )
+Major.create(mname: "국제경영", locker_limit: 2 )
+Major.create(mname: "모바일", locker_limit: 2 )
 
 Book.create(btitle: '국어', bclass: '경영학', bgiver: '문승현', bgrade: 3, major_id: 1 )
 Book.create(btitle: '국어', bclass: '경영학', bgiver: '한효주', bgrade: 3, major_id: 1 )

@@ -10,32 +10,36 @@ class LockerController < ApplicationController
 #1차접수 번호표 뽑기 로직
   def first_check
     
-    
-  #처음으로 1차 접수 시, 제한인원 안에 들었을 때 
-    if current_user.locker.nil? && current_user.my_num < current_user.major.locker_limit && current_user.my_num == 0
+    if current_user.my_num == 0
+    #처음으로 1차 접수 시, 제한인원 안에 들었을 때 
+      if current_user.locker.nil? && current_user.my_num < current_user.major.locker_limit
+        
+        #1차 접수 - 제한을 넘는지 확인하는 과정
+        current_user.update(my_num: @numbering)
+        current_user.major.update(locker_numbering: @numbering)
+        
+        Locker.create(user_id: current_user.id, major_id: current_user.major_id)
+        current_user.update(locker_id: Locker.where(user_id: current_user.id).take.id)
+        
+        flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
+        redirect_to :action => "selecting"
+    #처음으로 접수시 1차 접수 시, 제한 인원 안에 들지 못했을 때
+      elsif current_user.locker && current_user.my_num > current_user.major.locker_limit
       
-      #1차 접수 - 제한을 넘는지 확인하는 과정
-      current_user.update(my_num: @numbering)
-      current_user.major.update(locker_numbering: @numbering)
-      
-      Locker.create(user_id: current_user.id, major_id: current_user.major_id)
-      current_user.update(locker_id: Locker.where(user_id: current_user.id).take.id)
-      
-      flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
-      redirect_to :action => "selecting"
-  #처음으로 접수시 1차 접수 시, 제한 인원 안에 들지 못했을 때
-    elsif current_user.locker && current_user.my_num > current_user.major.locker_limit && current_user.my_num == 0
-      flash[:danger] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에....."
+        flash[:danger] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에....."
+        redirect_to :action => "reject"
+        
+        #1차 접수 - 제한을 넘는지 확인하는 과정
+        current_user.update(my_num: @numbering)
+        current_user.major.update(locker_numbering: @numbering)
+        
+    #뒤로가기 방지 로직
+      elsif current_user.locker && current_user.my_num < current_user.major.locker_limit
+        flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
+        redirect_to :action => "selecting"
+      end
+    else
       redirect_to :action => "reject"
-      
-      #1차 접수 - 제한을 넘는지 확인하는 과정
-      current_user.update(my_num: @numbering)
-      current_user.major.update(locker_numbering: @numbering)
-      
-  #뒤로가기 방지 로직
-    elsif current_user.locker && current_user.my_num < current_user.major.locker_limit && current_user.my_num == 0
-      flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
-      redirect_to :action => "selecting"
     end
   end
 
@@ -82,8 +86,7 @@ class LockerController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_numbering
-      @numbering = current_user.major.locker_numbering
-      @numbering =+ 1
+      @numbering = current_user.major.locker_numbering.to_i + 1
     end
     
     def set_locker
