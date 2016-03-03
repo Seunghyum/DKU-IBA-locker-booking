@@ -3,6 +3,8 @@ Rails.application.routes.draw do
              :controllers => {sessions: 'my_devise/sessions', registrations: "my_devise/registrations" }
 
   root :to => 'home#index'   
+  
+  get 'home/index'
    
   match '/book/selecting', to: 'book#selecting', via: [:get, :post]
   
