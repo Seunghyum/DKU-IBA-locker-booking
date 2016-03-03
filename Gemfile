@@ -4,6 +4,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'figaro'
 
+gem 'awesome_print', require: 'ap'
+
+group :development do
+  gem 'meta_request'
+end
+
 gem 'devise'
 
 gem 'mailgun_rails'
