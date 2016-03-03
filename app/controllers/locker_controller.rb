@@ -12,7 +12,7 @@ class LockerController < ApplicationController
     
     if current_user.my_num == 0
     #처음으로 1차 접수 시, 제한인원 안에 들었을 때 
-      if current_user.locker.nil? && current_user.my_num < current_user.major.locker_limit
+      if current_user.locker.nil? && current_user.my_num <= current_user.major.locker_limit
         
         #1차 접수 - 제한을 넘는지 확인하는 과정
         current_user.update(my_num: @numbering)
@@ -38,6 +38,9 @@ class LockerController < ApplicationController
         flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
         redirect_to :action => "selecting"
       end
+    elsif current_user.my_num >= 1
+      flash[:success] = "이미 1차 접수 를 하셨습니다 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
+      redirect_to :action => "selecting"
     else
       redirect_to :action => "reject"
     end

@@ -31,8 +31,6 @@
                         <%= hidden_field_tag 'btitle', x.btitle %>
                         <%= submit_tag "신청하기", class: "apply" %>
                     <% end %>
-                <% elsif x.user_id == current_user.id %>
-                    <span class='skyblue'>신청 완료</span>
                 <% else %>
                     <span class='red'>절판</span>     
                 <% end %>
