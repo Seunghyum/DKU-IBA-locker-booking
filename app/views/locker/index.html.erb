@@ -20,10 +20,12 @@
           </tr>
           <tr>
             <td>보유 사물함</td>
-            <% if current_user.locker.nil? %>
+            <% if current_user.locker %>
+              <td class='red'><%= current_user.locker.lnum %></td>
+            <% elsif current_user.my_num <= current_user.major.locker_limit %>  
               <td>미정</td>
             <% else %>
-              <td class='red'><%= current_user.locker.lnum %></td>
+              <td class='red'>불가</td>
             <% end %>
           </tr>
         </tbody>
