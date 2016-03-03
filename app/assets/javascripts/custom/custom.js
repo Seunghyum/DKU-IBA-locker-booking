@@ -75,13 +75,13 @@
     }
     
 $(document).ready(function(){
-    var screenHeight = $(window).height() - 100;
+    // var screenHeight = $(window).height() - 100;
     
-    $('section').css({'height': screenHeight});
+    // $('section').css({'height': screenHeight});
     
-    $(window).resize(function(){
-        var screenHeight = $(window).height() - 100;
+    // $(window).resize(function(){
+    //     var screenHeight = $(window).height() - 100;
         
-        $('section').css({'height': screenHeight});
-    });
+    //     $('section').css({'height': screenHeight});
+    // });
 });
