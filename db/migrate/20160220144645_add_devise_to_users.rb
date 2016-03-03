@@ -13,7 +13,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
       #가입정보
       t.string :username
       #국경 GBA여부
-      t.string :gba, default: false
+      t.boolean :gba, default: false
       #남자 = true
       t.boolean :gender
       #소유한 사물함

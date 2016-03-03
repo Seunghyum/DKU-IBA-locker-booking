@@ -67,26 +67,26 @@ ActiveRecord::Schema.define(version: 20160220144645) do
   add_index "majors", ["user_id"], name: "index_majors_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "book_id"
     t.integer  "liberal_id"
     t.integer  "major_id"
     t.integer  "locker_id"
     t.string   "username"
-    t.string   "gba",                    default: "f"
+    t.boolean  "gba",                    default: false
     t.boolean  "gender"
     t.string   "my_locker"
     t.integer  "my_num",                 default: 0
     t.string   "user_major"
     t.string   "user_submajor"
     t.integer  "user_student_num"
-    t.string   "email",                  default: "",  null: false
-    t.string   "encrypted_password",     default: "",  null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,   null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
