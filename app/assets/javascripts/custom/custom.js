@@ -9,12 +9,12 @@
     time zone offset.
     */
     
-    var current="지원하러 Go Go";    //-->enter what you want the script to display when the target date and time are reached, limit to 20 characters
+    //var current="지원하러 Go Go";    //-->enter what you want the script to display when the target date and time are reached, limit to 20 characters
     var year=2016;    //-->Enter the count down target date YEAR
-    var month=2;      //-->Enter the count down target date MONTH
-    var day=3;       //-->Enter the count down target date DAY
-    var hour=1;      //-->Enter the count down target date HOUR (24 hour clock)
-    var minute=27;    //-->Enter the count down target date MINUTE
+    var month=3;      //-->Enter the count down target date MONTH
+    var day=4;       //-->Enter the count down target date DAY
+    var hour=0;      //-->Enter the count down target date HOUR (24 hour clock)
+    var minute=24;    //-->Enter the count down target date MINUTE
     var tz=+9;        //-->Offset for your timezone in hours from UTC (see http://wwp.greenwichmeantime.com/index.htm to find the timezone offset for your location)
     
     //    DO NOT CHANGE THE CODE BELOW!
@@ -40,13 +40,17 @@
         var dmin=Math.floor(((dd%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
         var dsec=Math.floor((((dd%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
         if(dday<=0&&dhour<=0&&dmin<=0&&dsec<=0){
-            document.getElementById('count2').innerHTML=current;
-            document.getElementById('count2').style.display="block";
-            document.getElementById('count2').style.width="390px";
-            document.getElementById('dday').style.display="none";
-            document.getElementById('dhour').style.display="none";
-            document.getElementById('dmin').style.display="none";
-            document.getElementById('dsec').style.display="none";
+            //document.getElementById('count2').innerHTML=current;
+            //document.getElementById('count2').style.display="block";
+            //document.getElementById('count2').style.width="390px";
+            //document.getElementById('dday').style.display="none";
+            //document.getElementById('dhour').style.display="none";
+            //document.getElementById('dmin').style.display="none";
+            //document.getElementById('dsec').style.display="none";
+            document.getElementById('dsec').innerHTML="0";
+            document.getElementById('dmin').innerHTML="0";
+            document.getElementById('dhour').innerHTML="0";
+            document.getElementById('dday').innerHTML="0";
             document.getElementById('days').style.display="none";
             document.getElementById('hours').style.display="none";
             document.getElementById('minutes').style.display="none";

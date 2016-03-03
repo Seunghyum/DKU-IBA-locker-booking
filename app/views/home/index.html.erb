@@ -9,9 +9,10 @@
     
     
     <table id="table" border="0">
-        <tr>
-            <td align="center" colspan="6"><div class="numbers" id="count2" style="padding: 10px; "></div></td>
-        </tr>
+      <tr>
+        <td align="center" colspan="6"><div class="numbers" id="count2" style="padding: 10px; "></div></td>
+      </tr>
+    
         <tr id="spacer1">
             <td align="center" class="title"><p><전공이름>의 책 대여 사업은</p></td> 
             <td align="right" ><div class="numbers" id="dday"></div></td>
@@ -23,6 +24,9 @@
             <td align="right" ><div class="numbers" id="dsec"></div></td>
             <td align="center" class="title" style="width:30px;"><p>초</p></td>
             <td align="center" class="title"><p>에 열립니다.</p></td> 
+            <td align="center">
+              &nbsp&nbsp&nbsp&nbsp<%= link_to("/home/index") do %><%= image_tag("refresh.png", width: "40") %> <% end %>
+            </td>
         </tr>
         <!--
         <tr id="spacer2">
