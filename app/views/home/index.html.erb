@@ -14,7 +14,14 @@
       </tr>
     
         <tr id="spacer1">
-            <td align="center" class="title"><p>모바일의 책 대여 사업은</p></td> 
+          <% if current_user.nil? %>
+            <td align="center" class="title">
+              <p>국제학부 책 대여 & 사물함 프로젝트에 오신 것을 환영합니다~!</p>
+            </td>
+          <% else %>
+            <td align="center" class="title">
+              <p><%= current_user.major.mname %>의 사물함 대여 사업은</p>
+            </td> 
             <td align="right" ><div class="numbers" id="dday"></div></td>
             <td align="center" class="title" style="width:30px;"><p>일</p></td>
             <td align="right" ><div class="numbers" id="dhour"></div></td>
@@ -27,6 +34,7 @@
             <td align="center">
               &nbsp&nbsp&nbsp&nbsp<%= link_to("/home/index") do %><%= image_tag("refresh.png", width: "40") %> <% end %>
             </td>
+          <% end %>
         </tr>
         <!--
         <tr id="spacer2">
