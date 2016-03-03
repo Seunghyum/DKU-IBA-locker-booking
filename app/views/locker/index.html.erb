@@ -41,13 +41,6 @@
               <%= button_tag "1차 접수하기", class: "locker-button" %>
             <% end %>
           </div>
-        </div>
-        <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
-          <div class="form-group">
-            <%= link_to "/home/index", method: "get" do %>            
-              <%= button_tag "처음으로", class: "locker-button" %>
-            <% end %>
-          </div>
       <% elsif current_user.locker && current_user.locker.lnum.nil? %>
         <div class="form-group">
           <h5 class='silver'> 사물함 권한을가졌습니다 <br> 하지만 아직 사물함을 선택하지 않았습니다 </h5>
@@ -56,13 +49,6 @@
           <div class="form-group">
             <%= link_to locker_selecting_path, class: "form-group" do %>
               <%= button_tag "사물함 고르기", class: "locker-button" %>
-            <% end %>
-          </div>
-        </div>
-        <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
-          <div class="form-group">
-            <%= link_to "/home/index", method: "get" do %>            
-              <%= button_tag "처음으로", class: "locker-button" %>
             <% end %>
           </div>
       <% elsif current_user.my_num > current_user.major.locker_limit %>
@@ -84,14 +70,14 @@
               <%= button_tag "반납 & 다시 고르기", class: "locker-button" %>
             <% end %>
           </div>
+      <% end %>
         </div>
         <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
           <div class="form-group">
             <%= link_to "/home/index", method: "get" do %>            
-              <%= button_tag "저장하기", class: "locker-button" %>
+              <%= button_tag "홈으로 가기", class: "locker-button" %>
             <% end %>
           </div>
-      <% end %>
         </div>
         <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
           <div class="form-group">
