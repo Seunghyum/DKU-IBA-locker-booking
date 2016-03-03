@@ -1,6 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.action_mailer.default_url_options = { host: 'locker-book-seunghyum.c9users.io', port: 80 }
+  config.action_mailer.delivery_method = :mailgun
+config.action_mailer.mailgun_settings = {
+        api_key: 'key-8ea3e0c2876b90e2796be299a711592a',
+        domain: 'sandbox211ae2cd122e4ad9af1efe26b1bc31c8.mailgun.org'
+}
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
