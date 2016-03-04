@@ -14,19 +14,19 @@ Major.create(mname: "모바일", locker_limit: 46 )
       #전체 사물함갯수 ( 60개)  - 이미 지정된 사물함 갯수(14개)
 
 
-# user = User.new(
-#       :major_id              => 1,
-#       :user_major       => '국제경영',
-#       :email                 => "345345@dankook.ac.kr",
-#       :password              => "12341234",
-#       :password_confirmation => "12341234",
-#       :username          => "111",
-#       gender: true,
-#       user_student_num: 12341234,
-#       my_locker: 0
-#                 )
-# #user.skip_confirmation!
-# user.save!
+user = User.new(
+      :major_id              => 1,
+      :user_major       => '국제경영',
+      :email                 => "345345@dankook.ac.kr",
+      :password              => "12341234",
+      :password_confirmation => "12341234",
+      :username          => "111",
+      gender: true,
+      user_student_num: 12341234,
+      my_locker: 0
+                )
+#user.skip_confirmation!
+user.save!
 
 
 #모바일
@@ -309,7 +309,7 @@ user = User.create( username: "김이헌", user_student_num: 32140991, major_id:
 
 #56
 user = User.create( username: "김지수", user_student_num: 32141125, major_id: 1 , user_major: '국제경영', email: "37@dankook.ac.kr", password: "12341234", password_confirmation: "12341234", gender: true, my_locker: 0 )
-user = User.create( username: "문승현", user_student_num: 32141620, major_id: 1 , user_major: '국제경영', email: "38@dankook.ac.kr", password: "12341234", password_confirmation: "12341234", gender: true, my_locker: 0 )
+
 user = User.create( username: "박소영", user_student_num: 32141795, major_id: 1 , user_major: '국제경영', email: "39@dankook.ac.kr", password: "12341234", password_confirmation: "12341234", gender: true, my_locker: 0 )
 user = User.create( username: "이승민", user_student_num: 32143350, major_id: 1 , user_major: '국제경영', email: "3a@dankook.ac.kr", password: "12341234", password_confirmation: "12341234", gender: true, my_locker: 0 )
 user = User.create( username: "이정수", user_student_num: 32143571, major_id: 1 , user_major: '국제경영', email: "3b@dankook.ac.kr", password: "12341234", password_confirmation: "12341234", gender: true, my_locker: 0 )
@@ -437,6 +437,8 @@ user = User.create( username: "이재경", user_student_num: 52132771, major_id:
 #26
 user = User.create( username: "정봉주", user_student_num: 52132775, major_id: 1 , user_major: '국제경영', email: "8f@dankook.ac.kr", password: "12341234", password_confirmation: "12341234", gender: true, my_locker: 0, gba: true)
 user = User.create( username: "한은수", user_student_num: 52132782, major_id: 1 , user_major: '국제경영', email: "90@dankook.ac.kr", password: "12341234", password_confirmation: "12341234", gender: true, my_locker: 0, gba: true)
+
+
 
 
 # Book.create(btitle: '국어', bclass: '경영학', bgiver: '문승현', bgrade: 3, major_id: 1 )
