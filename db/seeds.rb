@@ -314,6 +314,7 @@ user = User.create( username: "박소영", password: 32141795, major_id: 1 , use
 user = User.create( username: "이승민", password: 32143350, major_id: 1 , user_major: '국제경영', email: "3a@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
 user = User.create( username: "이정수", password: 32143571, major_id: 1 , user_major: '국제경영', email: "3b@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
 
+
 #61
 user = User.create( username: "이창헌", password: 32143722, major_id: 1 , user_major: '국제경영', email: "3c@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
 user = User.create( username: "이혁주", password: 32143782, major_id: 1 , user_major: '국제경영', email: "3d@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
@@ -437,6 +438,8 @@ user = User.create( username: "이재경", password: 52132771, major_id: 1 , use
 #26
 user = User.create( username: "정봉주", password: 52132775, major_id: 1 , user_major: '국제경영', email: "8f@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0, gba: true)
 user = User.create( username: "한은수", password: 52132782, major_id: 1 , user_major: '국제경영', email: "90@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0, gba: true)
+
+
 
 
 # Book.create(btitle: '국어', bclass: '경영학', bgiver: '문승현', bgrade: 3, major_id: 1 )
