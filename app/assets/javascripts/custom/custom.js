@@ -13,8 +13,8 @@
     var year=2016;    //-->Enter the count down target date YEAR
     var month=3;      //-->Enter the count down target date MONTH
     var day=4;       //-->Enter the count down target date DAY
-    var hour=1;      //-->Enter the count down target date HOUR (24 hour clock)
-    var minute=54;    //-->Enter the count down target date MINUTE
+    var hour=15;      //-->Enter the count down target date HOUR (24 hour clock)
+    var minute=50;    //-->Enter the count down target date MINUTE
     var tz=+9;        //-->Offset for your timezone in hours from UTC (see http://wwp.greenwichmeantime.com/index.htm to find the timezone offset for your location)
     
     //    DO NOT CHANGE THE CODE BELOW!
@@ -59,29 +59,29 @@
             document.getElementById('spacer1').style.display="none";
             document.getElementById('spacer2').style.display="none";
             document.getElementById('book_button').style.display="block";
-            document.getElementById('locker_button').style.display="block"
+            document.getElementById('locker_button').style.display="block";
             return;
         }
         else {
-            document.getElementById('count2').style.display="none";
+            //document.getElementById('count2').style.display="none";
             document.getElementById('dday').innerHTML=dday;
             document.getElementById('dhour').innerHTML=dhour;
             document.getElementById('dmin').innerHTML=dmin;
             document.getElementById('dsec').innerHTML=dsec;
             document.getElementById('book_button').style.display="none";
-            document.getElementById('locker_button').style.display="none"
+            document.getElementById('locker_button').style.display="none";
             setTimeout("countdown(theyear,themonth,theday,thehour,theminute)",1000);
         }
     }
     
-$(document).ready(function(){
-    // var screenHeight = $(window).height() - 100;
+// $(document).ready(function(){
+//     // var screenHeight = $(window).height() - 100;
     
-    // $('section').css({'height': screenHeight});
+//     // $('section').css({'height': screenHeight});
     
-    // $(window).resize(function(){
-    //     var screenHeight = $(window).height() - 100;
+//     // $(window).resize(function(){
+//     //     var screenHeight = $(window).height() - 100;
         
-    //     $('section').css({'height': screenHeight});
-    // });
-});
+//     //     $('section').css({'height': screenHeight});
+//     // });
+// });
