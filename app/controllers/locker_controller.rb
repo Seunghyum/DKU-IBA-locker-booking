@@ -13,7 +13,7 @@ class LockerController < ApplicationController
     if current_user.gba
       if current_user.locker.nil?
           Locker.create(user_id: current_user.id, major_id: current_user.major_id)
-          current_user.update(locker_id: current_user.locker.id)
+          current_user.update(locker_id: Locker.where(user_id: current_user.id).take.id)
           flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
           redirect_to :action => "selecting"
           
@@ -43,11 +43,10 @@ class LockerController < ApplicationController
         
         #사물함 미소유자 / 제한인원 안에 들었을 때 
         if current_user.locker.nil? && current_user.my_num <= current_user.major.locker_limit
-          Locker.create(user_id: current_user.id, major_id: current_user.major_id)
-          current_user.update(locker_id: current_user.locker.id)
-          flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
-          redirect_to :action => "selecting"
-          
+            Locker.create(user_id: current_user.id, major_id: current_user.major_id)
+            current_user.update(locker_id: Locker.where(user_id: current_user.id).take.id)
+            flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
+            redirect_to :action => "selecting"
         #사물함 미소유자 / 제한 인원 안에 들지 못했을 때
         elsif current_user.locker && current_user.my_num > current_user.major.locker_limit
           flash[:danger] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에....."
