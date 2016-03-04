@@ -10,21 +10,21 @@ class BookController < ApplicationController
   
 #책 선택 로직
   def selecting
-    if @selecting_book.user_id.nil?  
-      
-      #책의 대여자가 없을 때 + 만일 같은이름의 책을 가지고 있다면 가지지 못하게.
-      if @mybook.nil? 
-        # current_user.update( book_id: @set_book )
-        @selecting_book.update( user_id: current_user.id )
-        flash[:success] = "#{@selecting_book.btitle} 책을 신청했습니다."  
+      if @selecting_book.user_id.nil?  
+        
+        #책의 대여자가 없을 때 + 만일 같은이름의 책을 가지고 있다면 가지지 못하게.
+          if @mybook.nil? 
+            # current_user.update( book_id: @set_book )
+            @selecting_book.update( user_id: current_user.id )
+            flash[:success] = "#{@selecting_book.btitle} 책을 신청했습니다."  
+          else
+            flash[:warning] = "같은 책을 2권이상 신청 할 수 없습니다."      
+          end
+          
+          redirect_to book_index_path
       else
-        flash[:warning] = "같은 책을 2권이상 신청 할 수 없습니다."      
-      end
-      
-      redirect_to book_index_path
-    else
-      flash[:danger] = "다른 사람이 이미 가져갔습니다."
-      redirect_to book_index_path
+        flash[:danger] = "다른 사람이 이미 가져갔습니다."
+        redirect_to book_index_path
     end
   end
   
