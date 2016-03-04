@@ -6,19 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
  
-# User.create(email: "1234@1234.com", username: "문승현", user_major: "국제경영", password: "12341234")
-# User.create(email: "12@12.com", username: "연습1", user_major: "국제경영", password: "12341234")
-# User.create(email: "23@23.com", username: "연습2", user_major: "국제경영", password: "12341234")
-# User.create(email: "34@34.com", username: "연습3", user_major: "국제경영", password: "12341234")
-# User.create(email: "45@45.com", username: "연습4", user_major: "국제경영", password: "12341234")
-# User.create(email: "67@67.com", username: "연습6", user_major: "국제경영", password: "12341234")
-# User.create(email: "78@78.com", username: "연습7", user_major: "국제경영", password: "12341234")
-# User.create(email: "89@89.com", username: "연습8", user_major: "국제경영", password: "12341234")
-# User.create(email: "10@10.com", username: "연습9", user_major: "국제경영", password: "12341234")
-# User.create(email: "11@11.com", username: "연습10", user_major: "국제경영", password: "12341234")
-# User.create(email: "12@12.com", username: "연습11", user_major: "국제경영", password: "12341234")
-# User.create(email: "123@123.com", username: "연습12", user_major: "국제경영", password: "12341234")
-
 #사물함 갯수 제한( 전체 사물함 갯수 - 이미 지정된 사물함 갯수 )
 Major.create(mname: "국제경영", locker_limit: 48 )
       #전체 사물함갯수 ( 52개) -  이미 지정된 사물함 갯수(4개)
@@ -452,10 +439,10 @@ user = User.create( username: "정봉주", user_student_num: 52132775, major_id:
 user = User.create( username: "한은수", user_student_num: 52132782, major_id: 1 , user_major: '국제경영', email: "90@dankook.ac.kr", password: "12341234", password_confirmation: "12341234", gender: true, my_locker: 0, gba: true)
 
 
-Book.create(btitle: '국어', bclass: '경영학', bgiver: '문승현', bgrade: 3, major_id: 1 )
-Book.create(btitle: '국어', bclass: '경영학', bgiver: '한효주', bgrade: 3, major_id: 1 )
-Book.create(btitle: '국어', bclass: '경영학', bgiver: '한예슬', bgrade: 3, major_id: 1 )
-Book.create(btitle: '수학', bclass: 'c프로그래밍', bgiver: '김우정', bgrade: 3, major_id: 2 )
+# Book.create(btitle: '국어', bclass: '경영학', bgiver: '문승현', bgrade: 3, major_id: 1 )
+# Book.create(btitle: '국어', bclass: '경영학', bgiver: '한효주', bgrade: 3, major_id: 1 )
+# Book.create(btitle: '국어', bclass: '경영학', bgiver: '한예슬', bgrade: 3, major_id: 1 )
+# Book.create(btitle: '수학', bclass: 'c프로그래밍', bgiver: '김우정', bgrade: 3, major_id: 2 )
 
 # locker = Locker.create( A_1: nil)
 # locker = Locker.update("1", num_limit: 7, numbering: 0 )
