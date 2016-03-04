@@ -121,7 +121,7 @@ class LockerController < ApplicationController
       @mylocker = current_user.locker
       
       #유저가 클릭한 사물함 
-      @lnum = params[:lnum]
+      @lnum = params[:lnum].to_i
       
       #유저가 클릭한 사물함 자체
       @selecting_locker = Locker.where(major_id: current_user.major_id, lnum: @lnum).take rescue nil
