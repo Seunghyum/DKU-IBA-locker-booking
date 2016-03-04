@@ -5,7 +5,6 @@
         
           <tr>
             <td>제목</td>
-            <td>수업</td>
             <td>책주인</td>
             <td>대여자</td>
             <td>대여자 학번</td>
@@ -14,8 +13,7 @@
         <% @book.each do |y| %>
           <tr>
             <td><%= y.btitle %></td>
-            <td><%= y.bclass %></td>
-            <td><%= y.bgiver %></td>
+            <td>IBA</td>
             <% if y.user %>
                 <td><%= y.user.username %></td>
                 <td><%= y.user.user_student_num %></td>
@@ -37,7 +35,7 @@
 &nbsp
 &nbsp
 <%= link_to "/home/index", method: "get" do %>            
-  <%= button_tag "저장하기", class: "locker-button" %>
+  <%= button_tag "홈으로 가기", class: "locker-button" %>
 <% end %>
 &nbsp
 </div>

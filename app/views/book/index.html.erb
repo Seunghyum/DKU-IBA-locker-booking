@@ -11,9 +11,7 @@
           <tr>
             <td>전공</td>
             <td>제목</td>
-            <td>수업</td>
             <td>학년</td>
-            <td>책주인</td>
             <td></td>
           </tr>
           
@@ -21,9 +19,7 @@
           <tr>
             <td><%= x.major.mname %></td>
             <td><%= x.btitle %></td>
-            <td><%= x.bclass %></td>
             <td><%= x.bgrade %></td>
-            <td><%= x.bgiver %></td>
             <td>
                 <% if x.user_id.nil? %>
                     <%= form_tag(book_selecting_path, method: "GET") do %>
@@ -46,19 +42,17 @@
         <tbody>
         
           <tr>
+            <td>전공</td>
             <td>제목</td>
-            <td>수업</td>
             <td>학년</td>
-            <td>책주인</td>
             <td>현황</td>
           </tr>
           
         <% @book.where(user_id: current_user).each do |y| %>
           <tr>
+            <td><%= y.major.mname %></td>
             <td><%= y.btitle %></td>
-            <td><%= y.bclass %></td>
             <td><%= y.bgrade %></td>
-            <td><%= y.bgiver %></td>
             <td>
                 <%= form_tag(book_destroy_path, method: "GET") do %>
                     <%= hidden_field_tag 'book_id', y.id %>
@@ -81,7 +75,7 @@
 &nbsp
 &nbsp
   <%= link_to "/home/index", method: "get" do %>            
-    <%= button_tag "저장하기", class: "locker-button" %>
+    <%= button_tag "홈으로 가기", class: "locker-button" %>
   <% end %>
 </div>
 </div>
