@@ -42,7 +42,7 @@ class LockerController < ApplicationController
       
     #제한 인원 넘는 유저 방지
     else      
-      redirect_to locker_reject_path
+      redirect_to :action => "reject"
     end
   end
 
