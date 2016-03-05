@@ -31,7 +31,8 @@ Rails.application.routes.draw do
   get 'locker/manage'
 
   get 'locker/selecting'
-
+  
+  get 'locker/nottime'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

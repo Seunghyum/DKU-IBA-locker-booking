@@ -1,72 +1,80 @@
 class LockerController < ApplicationController
   before_action :set_numbering, only: [:first_check]
   before_action :set_locker, only: [:lockerselect, :destroy]
-  before_action :authenticate_user!, :except => "manage"
+  before_action :set_time, only: [:lockerselect, :first_check, :nottime ]
+  before_action :authenticate_user!, :except => "nottime"
 
 #자신의 로커 상태 표시 page + 첫번째 번호표 뽑기 view page
   def index
   end
   
+  def nottime
+  end
+  
 #1차접수 번호표 뽑기 로직
   def first_check
-    #gba사람일 경우
-    if current_user.gba
-      if current_user.locker.nil?
-          Locker.create(user_id: current_user.id, major_id: current_user.major_id)
-          current_user.update(locker_id: Locker.where(user_id: current_user.id).take.id)
-          flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
-          redirect_to :action => "selecting"
-          
-        #사물함 미소유자 / 제한 인원 안에 들지 못했을 때
-        elsif current_user.locker
-          flash[:danger] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에....."
-          redirect_to :action => "reject"
-          
-        #뒤로가기 방지 로직 - 사물함 소유자 / 제한인원 안에 들었을 때 
-        elsif current_user.locker
-          flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
-          redirect_to :action => "selecting"
-        end
-        
-        
-    #gba사람이 아닐 경우
-    else   
-    
-    #1차 접수 - 제한을 넘는지 확인하는 과정
-      #처음으로 1차 접수 시
-   
-      if current_user.my_num == 0
-          
-          #1차 접수 - 제한을 넘는지 확인하는 과정
-          current_user.update(my_num: @numbering)
-          current_user.major.update(locker_numbering: @numbering)
-        
-        #사물함 미소유자 / 제한인원 안에 들었을 때 
-        if current_user.locker.nil? && current_user.my_num <= current_user.major.locker_limit
+    if @time.hour >= 12 && @time.min >= 0 
+      #gba사람일 경우
+      if current_user.gba
+        if current_user.locker.nil?
             Locker.create(user_id: current_user.id, major_id: current_user.major_id)
             current_user.update(locker_id: Locker.where(user_id: current_user.id).take.id)
             flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
             redirect_to :action => "selecting"
-        #사물함 미소유자 / 제한 인원 안에 들지 못했을 때
-        elsif current_user.locker && current_user.my_num > current_user.major.locker_limit
-          flash[:danger] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에....."
-          redirect_to :action => "reject"
+            
+          #사물함 미소유자 / 제한 인원 안에 들지 못했을 때
+          elsif current_user.locker
+            flash[:danger] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에....."
+            redirect_to :action => "reject"
+            
+          #뒤로가기 방지 로직 - 사물함 소유자 / 제한인원 안에 들었을 때 
+          elsif current_user.locker
+            flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
+            redirect_to :action => "selecting"
+          end
           
-        #뒤로가기 방지 로직 - 사물함 소유자 / 제한인원 안에 들었을 때 
-        elsif current_user.locker && current_user.my_num <= current_user.major.locker_limit
-          flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
+          
+      #gba사람이 아닐 경우
+      else   
+      
+      #1차 접수 - 제한을 넘는지 확인하는 과정
+        #처음으로 1차 접수 시
+     
+        if current_user.my_num == 0
+            
+            #1차 접수 - 제한을 넘는지 확인하는 과정
+            current_user.update(my_num: @numbering)
+            current_user.major.update(locker_numbering: @numbering)
+          
+          #사물함 미소유자 / 제한인원 안에 들었을 때 
+          if current_user.locker.nil? && current_user.my_num <= current_user.major.locker_limit
+              Locker.create(user_id: current_user.id, major_id: current_user.major_id)
+              current_user.update(locker_id: Locker.where(user_id: current_user.id).take.id)
+              flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
+              redirect_to :action => "selecting"
+          #사물함 미소유자 / 제한 인원 안에 들지 못했을 때
+          elsif current_user.locker && current_user.my_num > current_user.major.locker_limit
+            flash[:danger] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 다음학기에....."
+            redirect_to :action => "reject"
+            
+          #뒤로가기 방지 로직 - 사물함 소유자 / 제한인원 안에 들었을 때 
+          elsif current_user.locker && current_user.my_num <= current_user.major.locker_limit
+            flash[:success] = "1차 접수 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
+            redirect_to :action => "selecting"
+          end
+          
+        #제한 인원 안의 유저의 뒤로가기 방지 
+        elsif current_user.my_num >= 1
+          flash[:success] = "이미 1차 접수 를 하셨습니다 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
           redirect_to :action => "selecting"
+          
+        #제한 인원 넘는 유저 방지
+        else      
+          redirect_to :action => "reject"
         end
-        
-      #제한 인원 안의 유저의 뒤로가기 방지 
-      elsif current_user.my_num >= 1
-        flash[:success] = "이미 1차 접수 를 하셨습니다 - 총 제한 인원 #{current_user.major.locker_limit}명 중 #{current_user.my_num}번째 입니다. 사물함을 선택해주세요"
-        redirect_to :action => "selecting"
-        
-      #제한 인원 넘는 유저 방지
-      else      
-        redirect_to :action => "reject"
       end
+    else
+      redirect_to :action => "nottime"
     end
   end
 
@@ -125,5 +133,9 @@ class LockerController < ApplicationController
       
       #유저가 클릭한 사물함 자체
       @selecting_locker = Locker.where(major_id: current_user.major_id, lnum: @lnum).take rescue nil
+    end
+    
+    def set_time
+      @time = Time.now + 9.hours 
     end
 end
