@@ -442,10 +442,10 @@ user = User.create( username: "한은수", password: 52132782, major_id: 1 , use
 
 
 
-Book.create(btitle: '국어', bclass: '경영학', bgiver: '문승현', bgrade: 3, major_id: 1 )
-Book.create(btitle: '국어', bclass: '경영학', bgiver: '한효주', bgrade: 3, major_id: 1 )
-Book.create(btitle: '국어', bclass: '경영학', bgiver: '한예슬', bgrade: 3, major_id: 1 )
-Book.create(btitle: '수학', bclass: 'c프로그래밍', bgiver: '김우정', bgrade: 3, major_id: 2 )
+Book.create(btitle: '국어', bclass: nil, bgiver: 'IBA', bgrade: nil, major_id: 1 )
+Book.create(btitle: '국어', bclass: nil, bgiver: 'IBA', bgrade: nil, major_id: 1 )
+Book.create(btitle: '국어', bclass: nil, bgiver: 'IBA', bgrade: nil, major_id: 1 )
+Book.create(btitle: '수학', bclass: nil, bgiver: 'IBA', bgrade: nil, major_id: 1 )
 
 # locker = Locker.create( A_1: nil)
 # locker = Locker.update("1", num_limit: 7, numbering: 0 )

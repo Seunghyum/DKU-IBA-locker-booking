@@ -7,7 +7,6 @@
             <td>제목</td>
             <td>책주인</td>
             <td>대여자</td>
-            <td>대여자 학번</td>
           </tr>
           
         <% @book.each do |y| %>
@@ -16,7 +15,6 @@
             <td>IBA</td>
             <% if y.user %>
                 <td><%= y.user.username %></td>
-                <td><%= y.user.user_student_num %></td>
             <% else %>
                 <td class='red'>미정</td>
                 <td class='red'>미정</td>
