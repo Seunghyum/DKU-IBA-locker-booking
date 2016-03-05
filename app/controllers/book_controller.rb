@@ -1,5 +1,6 @@
 class BookController < ApplicationController
   before_action :set_book, only: [ :destroy, :selecting ]
+  before_action :set_time, only: [:selecting, :nottime ]
   before_action :authenticate_user!, :except => "manage"
 
 #자신의 로커 상태 표시 page + 첫번째 번호표 뽑기 view page
@@ -10,9 +11,13 @@ class BookController < ApplicationController
   
 #책 선택 로직
   def selecting
+    #시간 제약
+    if @time.hour >= 23 && @time.min >= 55 
+      
+      #책의 대여자가 없을 때 
       if @selecting_book.user_id.nil?  
         
-        #책의 대여자가 없을 때 + 만일 같은이름의 책을 가지고 있다면 가지지 못하게.
+        #만일 같은이름의 책을 가지고 있다면 가지지 못하게.
           if @mybook.nil? 
             # current_user.update( book_id: @set_book )
             @selecting_book.update( user_id: current_user.id )
@@ -25,6 +30,9 @@ class BookController < ApplicationController
       else
         flash[:danger] = "다른 사람이 이미 가져갔습니다."
         redirect_to book_index_path
+      end
+    else
+      redirect_to book_nottime_path
     end
   end
   
@@ -53,5 +61,9 @@ class BookController < ApplicationController
     #이미 가지고 있는 책이 선택한 책과 겹치는지
       @mybook = Book.where(user_id: current_user.id, btitle: @btitle).take
       
+    end
+    
+    def set_time
+      @time = Time.now + 9.hours 
     end
 end

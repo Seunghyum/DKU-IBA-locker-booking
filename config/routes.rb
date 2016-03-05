@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'book/reject'
 
   get 'book/manage'
+  
+  get 'book/nottime'
 
 
   
