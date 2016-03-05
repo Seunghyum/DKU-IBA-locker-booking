@@ -14,13 +14,10 @@
       </tr>
     
         <tr id="spacer1">
+         
           <% if current_user.nil? %>
             <td align="center" class="title">
-              <p>국제학부 책 대여 & 사물함 프로젝트에 오신 것을 환영합니다~!</p>
-            </td>
-          <% else %>
-            <td align="center" class="title">
-              <p><%= current_user.major.mname %>의 사물함 대여 사업은</p>
+              <p>사물함 대여 사업은</p>
             </td> 
             <td align="right" ><div class="numbers" id="dday"></div></td>
             <td align="center" class="title" style="width:30px;"><p>일</p></td>
@@ -33,6 +30,10 @@
             <td align="center" class="title"><p>&nbsp;후에 열립니다.</p></td> 
             <td align="center">
               &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to("/home/index") do %><%= image_tag("refresh.png", width: "40") %> <% end %>
+            </td>
+         <% else %>
+            <td align="center" class="title">
+              <p>국제학부 책 대여 & 사물함 프로젝트에 오신 것을 환영합니다~!</p>
             </td>
           <% end %>
         </tr>
@@ -50,17 +51,17 @@
     
   </div>
 </div>
-
 <div class="row">
   <div class="col-xs-12 col-md-12 col-lg-12 text-center" id="book_button">
-  <!--<div class="col-xs-6 col-md-6 col-lg-6 text-center" id="book_button">-->
+  <!--<div class="col-xs-6 col-md-6 col-lg-12 text-center" id="book_button">
     <%#= link_to(book_index_path) do %><%#= image_tag "books.png", class: "center-block img-responsive img-circle hoverable" %> <%# end %>
-    <!--<%#= link_to(book_index_path) do %><h4>중고책 대여 신청</h4><%# end %>-->
+   <%#= link_to(book_index_path) do %><h4>중고책 대여 신청</h4><%#end %>-->
   </div>
   
   <div class="col-xs-12 col-md-12 col-lg-12 text-center" id="locker_button">
   <!--<div class="col-xs-6 col-md-6 col-lg-6 text-center" id="locker_button">-->
-    <%= link_to(locker_index_path) do %> <% image_tag "lockers.png", class: "center-block img-responsive img-circle hoverable" %><% end %>
+    <%= link_to(locker_index_path) do %> <%= image_tag "lockers.png", class: "center-block img-responsive img-circle hoverable" %><% end %>
     <%= link_to(locker_index_path) do %><h4>사물함 신청</h4><% end %>
   </div>
+  
 </div>
