@@ -309,7 +309,7 @@ user = User.create( username: "김이헌", password: 32140991, major_id: 1 , use
 
 #56
 user = User.create( username: "김지수", password: 32141125, major_id: 1 , user_major: '국제경영', email: "37@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
-user = User.create( username: "문승현", password: 32141620, major_id: 1 , user_major: '국제경영', email: "38@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
+# user = User.create( username: "문승현", password: 32141620, major_id: 1 , user_major: '국제경영', email: "38@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
 user = User.create( username: "박소영", password: 32141795, major_id: 1 , user_major: '국제경영', email: "39@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
 user = User.create( username: "이승민", password: 32143350, major_id: 1 , user_major: '국제경영', email: "3a@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
 user = User.create( username: "이정수", password: 32143571, major_id: 1 , user_major: '국제경영', email: "3b@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )

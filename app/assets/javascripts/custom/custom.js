@@ -52,12 +52,12 @@
             document.getElementById('dmin').innerHTML="0";
             document.getElementById('dhour').innerHTML="0";
             document.getElementById('dday').innerHTML="0";
-            document.getElementById('days').style.display="none";
-            document.getElementById('hours').style.display="none";
-            document.getElementById('minutes').style.display="none";
-            document.getElementById('seconds').style.display="none";
-            document.getElementById('spacer1').style.display="none";
-            document.getElementById('spacer2').style.display="none";
+            //document.getElementById('days').style.display="none";
+            //document.getElementById('hours').style.display="none";
+            //document.getElementById('minutes').style.display="none";
+            //document.getElementById('seconds').style.display="none";
+            //ocument.getElementById('spacer1').style.display="none";
+            //document.getElementById('spacer2').style.display="none";
             document.getElementById('book_button').style.display="block";
             document.getElementById('locker_button').style.display="block";
             return;
