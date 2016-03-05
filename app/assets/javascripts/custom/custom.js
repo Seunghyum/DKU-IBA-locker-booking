@@ -58,8 +58,8 @@
             //document.getElementById('seconds').style.display="none";
             //ocument.getElementById('spacer1').style.display="none";
             //document.getElementById('spacer2').style.display="none";
-            document.getElementById('book_button').style.display="block";
-            document.getElementById('locker_button').style.display="block";
+            // document.getElementById('book_button').style.display="block";
+            // document.getElementById('locker_button').style.display="block";
             return;
         }
         else {
@@ -68,8 +68,8 @@
             document.getElementById('dhour').innerHTML=dhour;
             document.getElementById('dmin').innerHTML=dmin;
             document.getElementById('dsec').innerHTML=dsec;
-            document.getElementById('book_button').style.display="none";
-            document.getElementById('locker_button').style.display="none";
+            // document.getElementById('book_button').style.display="none";
+            // document.getElementById('locker_button').style.display="none";
             setTimeout("countdown(theyear,themonth,theday,thehour,theminute)",1000);
         }
     }
