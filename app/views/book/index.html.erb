@@ -11,13 +11,17 @@
           <tr>
             <td>전공</td>
             <td>제목</td>
-            <td></td>
+            <td>버전</td>
+            <td>원본 / 제본</td>
+            <td>현황</td>
           </tr>
           
         <% @able_book.each do |x| %>
           <tr>
             <td><%= x.major.mname %></td>
             <td><%= x.btitle %></td>
+            <td><%= x.n_edition %>th Edition</td>
+            <td><%= x.real_or_copy %></td>
             <td>
                 <% if x.user_id.nil? %>
                     <%= form_tag(book_selecting_path, method: "GET") do %>
@@ -42,7 +46,8 @@
           <tr>
             <td>전공</td>
             <td>제목</td>
-            <td>학년</td>
+            <td>버전</td>
+            <td>원본 / 제본</td>
             <td>현황</td>
           </tr>
           
@@ -50,7 +55,8 @@
           <tr>
             <td><%= y.major.mname %></td>
             <td><%= y.btitle %></td>
-            <td><%= y.bgrade %></td>
+            <td><%= y.n_edition %>th Edition</td>
+            <td><%= y.real_or_copy %></td>
             <td>
                 <%= form_tag(book_destroy_path, method: "GET") do %>
                     <%= hidden_field_tag 'book_id', y.id %>

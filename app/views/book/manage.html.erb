@@ -5,14 +5,16 @@
         
           <tr>
             <td>제목</td>
-            <td>책주인</td>
+            <td>버전</td>
+            <td>원본 / 제본</td>
             <td>대여자</td>
           </tr>
           
         <% @book.each do |y| %>
           <tr>
             <td><%= y.btitle %></td>
-            <td>IBA</td>
+            <td><%= y.n_edition %>th Edition</td>
+            <td><%= y.real_or_copy %></td>
             <% if y.user %>
                 <td><%= y.user.username %></td>
             <% else %>

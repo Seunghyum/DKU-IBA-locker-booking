@@ -9,6 +9,13 @@ class CreateBooks < ActiveRecord::Migration
       t.string :bgiver
     #학년
       t.integer :bgrade
+    
+    #제본판
+      t.integer :n_edition
+    #원본/제본
+      t.string :real_or_copy
+      
+      
     # #총 학생회가 보유하고 있는 책
     #   t.integer :all_book
     # #지금까지 대여한 책

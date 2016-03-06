@@ -396,6 +396,7 @@ user = User.create( username: "홍수미", password: 32165004, major_id: 1 , use
 user = User.create( username: "홍혜빈", password: 32165055, major_id: 1 , user_major: '국제경영', email: "73@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
 user = User.create( username: "CHOWMENGHONG", password: 32165135, major_id: 1 , user_major: '국제경영', email: "74@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
 user = User.create( username: "EDWARDNGCHEEHANG", password: 32165136, major_id: 1 , user_major: '국제경영', email: "75@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
+user = User.create( username: "안유진a", password: 12341234, major_id: 1 , user_major: '국제경영', email: "76@dankook.ac.kr", user_student_num: "12341234",  gender: true, my_locker: 0 )
 
 
 #GBA
@@ -442,10 +443,41 @@ user = User.create( username: "한은수", password: 52132782, major_id: 1 , use
 
 
 
-Book.create(btitle: '국어', bclass: nil, bgiver: 'IBA', bgrade: nil, major_id: 1 )
-Book.create(btitle: '국어', bclass: nil, bgiver: 'IBA', bgrade: nil, major_id: 1 )
-Book.create(btitle: '국어', bclass: nil, bgiver: 'IBA', bgrade: nil, major_id: 1 )
-Book.create(btitle: '수학', bclass: nil, bgiver: 'IBA', bgrade: nil, major_id: 1 )
+Book.create(btitle: 'Intercultural Cummunication in The Global Workspace', real_or_copy: "원본", n_edition: 5, major_id: 1 )
+Book.create(btitle: 'Intercultural Cummunication in The Global Workspace', real_or_copy: "제본", n_edition: 5, major_id: 1 )
+Book.create(btitle: 'Intercultural Cummunication in The Global Workspace', real_or_copy: "제본", n_edition: 5, major_id: 1 )
+Book.create(btitle: 'Intercultural Cummunication in The Global Workspace', real_or_copy: "제본", n_edition: 5, major_id: 1 )
+Book.create(btitle: 'Intercultural Cummunication in The Global Workspace', real_or_copy: "제본", n_edition: 5, major_id: 1 )
+Book.create(btitle: 'Intercultural Cummunication in The Global Workspace', real_or_copy: "제본", n_edition: 5, major_id: 1 )
+
+
+
+Book.create(btitle: 'Consumer Behavior & Marketing Strategy', real_or_copy: "제본", n_edition: 9, major_id: 1 )
+Book.create(btitle: 'Consumer Behavior & Marketing Strategy', real_or_copy: "제본", n_edition: 9, major_id: 1 )
+
+
+Book.create(btitle: 'Essential Mathematics fir Economics and business', real_or_copy: "원본", n_edition: 4, major_id: 1 )
+Book.create(btitle: 'Essential Mathematics fir Economics and business', real_or_copy: "원본", n_edition: 4, major_id: 1 )
+Book.create(btitle: 'Essential Mathematics fir Economics and business', real_or_copy: "제본", n_edition: 4, major_id: 1 )
+
+
+Book.create(btitle: 'English for Business Studies - A course for Business Studies and Economics', real_or_copy: "원본", n_edition: 3, major_id: 1 )
+Book.create(btitle: 'English for Business Studies - A course for Business Studies and Economics', real_or_copy: "원본", n_edition: 3, major_id: 1 )
+Book.create(btitle: 'English for Business Studies - A course for Business Studies and Economics', real_or_copy: "원본", n_edition: 3, major_id: 1 )
+
+
+Book.create(btitle: 'Essentials of Organizational Behavior', real_or_copy: "원본", n_edition: 12, major_id: 1 )
+Book.create(btitle: 'Essentials of Organizational Behavior', real_or_copy: "원본", n_edition: 12, major_id: 1 )
+Book.create(btitle: 'Essentials of Organizational Behavior', real_or_copy: "원본", n_edition: 11, major_id: 1 )
+
+
+Book.create(btitle: 'organizational Structures and Design', real_or_copy: "제본", n_edition: 12, major_id: 1 )
+
+Book.create(btitle: '세계속의 한국', real_or_copy: "원본", n_edition: 11, major_id: 1 )
+
+Book.create(btitle: '사고와 표현', real_or_copy: "원본", n_edition: 11, major_id: 1 )
+
+
 
 # locker = Locker.create( A_1: nil)
 # locker = Locker.update("1", num_limit: 7, numbering: 0 )
