@@ -8,6 +8,8 @@ class AddDeviseToUsers < ActiveRecord::Migration
       #1차 버튼클릭 합격자들만 가질 수 있는 locker_id
       t.references :locker, index: true
       
+      #admin
+      t.boolean :is_admin, default: false
       #Major의 mname을 동일하게 만들기 위해
       
       #가입정보

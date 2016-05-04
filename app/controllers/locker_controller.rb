@@ -13,7 +13,7 @@ class LockerController < ApplicationController
   
 #1차접수 번호표 뽑기 로직
   def first_check
-    if @time.hour >= 12 && @time.min >= 0 
+    if @time.hour >= 9 && @time.min >= 0 
       #gba사람일 경우
       if current_user.gba
         if current_user.locker.nil?

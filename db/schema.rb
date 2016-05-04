@@ -18,11 +18,13 @@ ActiveRecord::Schema.define(version: 20160220144645) do
     t.string   "bclass"
     t.string   "bgiver"
     t.integer  "bgrade"
+    t.integer  "n_edition"
+    t.string   "real_or_copy"
     t.integer  "user_id"
     t.integer  "major_id"
     t.integer  "liberal_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "books", ["liberal_id"], name: "index_books_on_liberal_id"

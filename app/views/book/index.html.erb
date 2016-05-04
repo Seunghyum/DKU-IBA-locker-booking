@@ -70,15 +70,17 @@
         </tbody>
     </table>
 <br>
+<br>
+<br>
 <div class="col-md-8"></div>
 <div class="col-md-4">
-  <%= link_to "/book/manage", method: "get" do %>            
+  <%= link_to "/book/manage", method: "get", class: "locker-button-wrapper" do %>            
     <%= button_tag "현황보기", class: "locker-button" %>
   <% end %>
-&nbsp
-&nbsp
-&nbsp
-  <%= link_to "/home/index", method: "get" do %>            
+&nbsp;
+&nbsp;
+&nbsp;
+  <%= link_to "/home/index", method: "get", class: "locker-button-wrapper" do %>            
     <%= button_tag "홈으로 가기", class: "locker-button" %>
   <% end %>
 </div>

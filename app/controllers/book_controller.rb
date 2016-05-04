@@ -12,7 +12,7 @@ class BookController < ApplicationController
 #책 선택 로직
   def selecting
     #시간 제약
-    if @time.hour >= 23 && @time.min >= 55 
+    if @time.hour >= 10 && @time.min >= 00 
       
       #책의 대여자가 없을 때 
       if @selecting_book.user_id.nil?  

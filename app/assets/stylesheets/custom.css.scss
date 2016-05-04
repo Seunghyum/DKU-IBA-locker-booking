@@ -1,10 +1,25 @@
-@font-face{
- font-family:'Godo';
- font-style:normal;
- font-weight:400;
- src:url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'),
-     url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+//font plugin
+// @font-face{
+//  font-family:'Godo';
+//  font-style:normal;
+//  font-weight:400;
+//  src:url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'),
+//      url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+// }
+
+@font-face {
+	font-family: 'BM JUA';
+	font-weight: normal;
+	font-style: normal;
+	src: url('https://github.com/singihae/Webfonts/blob/master/BM-JUA.eot');
+	src: url('https://github.com/singihae/Webfonts/blob/master/BM-JUA.eot?#iefix') format('embedded-opentype'),
+		url('https://github.com/singihae/Webfonts/blob/master/BM-JUA.woff') format('woff'),
+		url('https://github.com/singihae/Webfonts/blob/master/BM-JUA.svg#BM-JUA') format('svg'),
+		url('https://github.com/singihae/Webfonts/blob/master/BM-JUA.ttf') format('truetype');
 }
+
+* {font-family:'BM JUA',sans-serif;}
+
 
 //타이머 커스터마이징
 .numbers {
@@ -26,8 +41,7 @@
         padding-top: 6px;
         //padding: 0px;
         //width: 30px;
-        text-align: center; 
-        //font-family: Arial; 
+        text-align: center;
         font-size: 25px; 
         font-weight: normal;  /* options are normal, bold, bolder, lighter */
         color: #595959;       /* change color using the hexadecimal color codes for HTML */
@@ -99,7 +113,9 @@ body {
 .silver {
     color: silver;    
 }
-
+.locker-button-wrapper {
+    display: inline-block;
+}
 .locker-button {
 	font-size: 15px;
 	border: 0;
@@ -111,7 +127,7 @@ body {
 	color: #fff;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 }
-
+    
 footer {
     position: fixed;
     bottom:0px;
