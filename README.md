@@ -11,7 +11,7 @@
 라이브러리 설치
 
 ```
-$ gem install 
+$ bundle install 
 ```
 
 서버시작
