@@ -1,0 +1,19 @@
+<div class="login">
+    <h4 class='blue-1'><strong> <i class="fa fa-caret-right"></i><%= current_user.major.mname %> 학과</strong></h4>
+    
+    <table class="table" id='locker'>
+        <tbody>
+          <tr>
+            <td>이름</td>
+            <td>사물함 번호</td>
+          </tr>
+            <% @user_major_locker.each do |x|%>
+              <tr>
+                <td><%= x.user.username %></td>
+                <td><%= x.lnum %></td>
+              </tr>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+</div>

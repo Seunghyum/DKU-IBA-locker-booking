@@ -1,0 +1,42 @@
+<div class="login">
+    <h4 class='blue-1'><strong><i class="fa fa-caret-right"></i>전체 도서 현황</strong></h4>
+    <table class="table" id='book'>
+        <tbody>
+        
+          <tr>
+            <td>제목</td>
+            <td>버전</td>
+            <td>원본 / 제본</td>
+            <td>대여자</td>
+          </tr>
+          
+        <% @book.each do |y| %>
+          <tr>
+            <td><%= y.btitle %></td>
+            <td><%= y.n_edition %>th Edition</td>
+            <td><%= y.real_or_copy %></td>
+            <% if y.user %>
+                <td><%= y.user.username %></td>
+            <% else %>
+                <td class='red'>미정</td>
+            <% end %>
+          </tr>
+        <% end %>
+        
+        </tbody>
+    </table>
+<div class="col-md-8"></div>
+<div class="col-md-4">
+<%= link_to "/book/index", method: "get" do %>            
+  <%= button_tag "이전으로", class: "locker-button" %>
+<% end %>
+&nbsp
+&nbsp
+&nbsp
+<%= link_to "/home/index", method: "get" do %>            
+  <%= button_tag "홈으로 가기", class: "locker-button" %>
+<% end %>
+&nbsp
+</div>
+    
+</div>

@@ -1,0 +1,165 @@
+@font-face{
+ font-family:'Godo';
+ font-style:normal;
+ font-weight:400;
+ src:url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'),
+     url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
+
+//타이머 커스터마이징
+.numbers {
+        //border-style: ridge;    /* options are none, dotted, dashed, solid, double, groove, ridge, inset, outset */
+        //border-width: 2px;
+        //border-color: #ffffff;  /* change the border color using the hexadecimal color codes for HTML */
+        //background: #ffffff;    /* change the background color using the hexadecimal color codes for HTML */
+        //padding: 2px 0px;
+        width: 50px;
+        text-align: center; 
+        //font-family: Arial; 
+        font-size: 28px;
+        font-weight: bold;    /* options are normal, bold, bolder, lighter */
+        font-style: normal;   /* options are normal or italic */
+        color: #000000;       /* change color using the hexadecimal color codes for HTML */
+}
+.title {    /* the styles below will affect the title under the numbers, i.e., “Days”, “Hours”, etc. */
+        //border: solid;    
+        padding-top: 6px;
+        //padding: 0px;
+        //width: 30px;
+        text-align: center; 
+        //font-family: Arial; 
+        font-size: 25px; 
+        font-weight: normal;  /* options are normal, bold, bolder, lighter */
+        color: #595959;       /* change color using the hexadecimal color codes for HTML */
+        background: transparent;    /* change the background color using the hexadecimal color codes for HTML */
+}
+#table {
+        //width: 350px;
+        //border: solid;    /* options are none, dotted, dashed, solid, double, groove, ridge, inset, outset */
+        margin: 0px auto;
+        position: relative;    /* leave as "relative" to keep timer centered on your page, or change to "absolute" then change the values of the "top" and "left" properties to position the timer */
+        top: 0px;        /* change to position the timer */
+        left: 0px;       /* change to position the timer; delete this property and it's value to keep timer centered on page */
+}
+
+td{
+    height: 50px;
+    vertical-align: middle;
+}
+
+//applicaition.html.erb 커스터마이징
+#nav {
+    height: 50px;    
+}
+section {
+    margin-top: 50px;  
+    margin-bottom: 100px;
+    height: 100%;
+}
+body {
+    background-color: #f5f6f7;   
+}
+.text-center {
+    text-align: center;    
+}
+.hoverable:hover {
+    transition: box-shadow 0.7s;
+    background-color: #cfe8ff;
+}
+.blue-1 {
+    color: #00529c;
+}
+#locker {
+    tr > td:nth-child(1) {
+        background-color: #cbe0f7;   
+        width: 120px;
+    }
+    tr > td:nth-child(2) {
+        background-color: #e3efff;   
+    }
+}
+
+
+.red {
+    color: red;    
+}
+
+.skyblue {    
+    color: skyblue;    
+}
+
+#book {
+    color: #5c5c5c;
+    tr:nth-child(1) {
+        color: #00529c;   
+        background-color: #e3efff;   
+    }
+}
+
+.silver {
+    color: silver;    
+}
+
+.locker-button {
+	font-size: 15px;
+	border: 0;
+	padding: 15px;
+	width: 150px;
+	border-radius: 3px;
+	cursor: pointer;
+	background: rgb(3, 169, 245);
+	color: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+footer {
+    position: fixed;
+    bottom:0px;
+    width: 100%;
+    height: 80px;
+    padding: 5px;
+    background-color: #ffffff;
+    
+    img { 
+        height: 70px;
+    }
+}
+
+.submit {
+	font-size: 15px;
+	border: 0;
+	padding: 15px;
+	width: 100%;
+	border-radius: 3px;
+	cursor: pointer;
+	background: rgb(3, 169, 245);
+	color: #fff;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+.submit:focus {
+	outline: none;
+}
+
+.apply {   
+    font-size: 13px;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    background: #03a9f5;
+    color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+.return {   
+    font-size: 13px;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    background: orange;
+    color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+.red-box {
+    background-color: red;    
+}
