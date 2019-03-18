@@ -23,4 +23,4 @@ $ rails s
 ## Built With
 - 언어 : Ruby
 - 프레임 워크 : Rails
-- 데이터베이스 : Sqlite3
+- 데이터베이스 : MySQL
